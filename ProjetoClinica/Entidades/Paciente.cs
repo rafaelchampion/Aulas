@@ -10,5 +10,11 @@ namespace ProjetoClinica.Entidades
     {
         public int Id { get; set; }
         public DateTime DataCadastro { get; set; }
+        public Paciente(string nome, DateTime abobrinha)
+        {
+            Nome = nome;
+            DataNascimento = abobrinha;
+        }
+
     }
 }

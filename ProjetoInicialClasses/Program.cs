@@ -10,7 +10,8 @@ namespace ProjetoInicialClasses
     {
         static void Main(string[] args)
         {
-            Mamifero elefante = new Mamifero("Elefante", 10, 15);
+
+            Mamifero elefante = new Mamifero("Elefante", 20, 20);
             elefante.Anda();
 
             double teste = elefante.Come();

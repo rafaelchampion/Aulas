@@ -27,5 +27,10 @@ namespace ProjetoInicialClasses
         {
             Console.WriteLine(Nome + " andou.");
         }
+
+        public void AlteraNome(string nome)
+        {
+            Nome = nome;
+        }
     }
 }

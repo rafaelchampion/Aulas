@@ -28,20 +28,22 @@ namespace ProjetoClinica
                 switch (opcaoDigitada)
                 {
                     case 1:
+                        //Solicitando o nome ao usuário
                         Console.WriteLine("Digite o nome do paciente");
-
+                        //Lendo o nome vindo do usuário
                         string nomePaciente = Console.ReadLine();
 
+                        //Solicitando a data de nascimento do usuário
                         Console.WriteLine("Digite a data de nascimento do paciente");
-
+                        //Lendo a data de nascimento do usuário
                         DateTime dataNascimento = DateTime.Parse(Console.ReadLine());
 
-                        Paciente paciente = new Paciente();
+                        //Ler do usuário todos os outros campos da classe Paciente
+
+                        //Criand o paciente (instância da classe paciente)
+                        Paciente paciente = new Paciente(nomePaciente, dataNascimento);
 
                         //SALVAR O PACIENTE EM ALGUM LUGAR
-
-                        paciente.Nome = nomePaciente;
-                        paciente.DataNascimento = dataNascimento;
 
                         Console.WriteLine("Paciente salvo com sucesso");
                         Console.WriteLine("");
@@ -57,6 +59,7 @@ namespace ProjetoClinica
                         Console.ReadLine();
                         break;
                     default:
+                        Console.WriteLine("Opção inválida");
                         break;
                 }
             }
