@@ -10,5 +10,16 @@ namespace ProjetoClinica.Entidades
     {
         public int Id { get; set; }
         public string Especialidade { get; set; }
+
+        public Profissional(string nome, DateTime datanascimento, string CPF, string logradouro, int numero, string bairro, string complemento)
+        {
+            this.Nome = nome;
+            this.DataNascimento = datanascimento;
+            this.CPF = CPF;
+            this.Logradouro = logradouro;
+            this.Numero = numero;
+            this.Bairro = bairro;
+            this.Complemento = complemento;
+        }
     }
 }

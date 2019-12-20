@@ -28,21 +28,21 @@ namespace ProjetoClinica
                 switch (opcaoDigitada)
                 {
                     case 1:
-                        //Solicitando o nome ao usuário
                         Console.WriteLine("Digite o nome do paciente");
-                        //Lendo o nome vindo do usuário
                         string nomePaciente = Console.ReadLine();
-
-                        //Solicitando a data de nascimento do usuário
                         Console.WriteLine("Digite a data de nascimento do paciente");
-                        //Lendo a data de nascimento do usuário
-                        DateTime dataNascimento = DateTime.Parse(Console.ReadLine());
-
-                        //Ler do usuário todos os outros campos da classe Paciente
-
-                        //Criand o paciente (instância da classe paciente)
-                        Paciente paciente = new Paciente(nomePaciente, dataNascimento);
-
+                        DateTime dataNascimentoPaciente = DateTime.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite seu CPF");
+                        string cpfPaciente = Console.ReadLine();
+                        Console.WriteLine("Digite seu Logradouro");
+                        string logradouroPaciente = Console.ReadLine();
+                        Console.WriteLine("Digite o Numero de sua casa");
+                        int numeroPaciente = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite seu Bairro");
+                        string bairroPaciente = Console.ReadLine();
+                        Console.WriteLine("Digite seu Complemento");
+                        string complementoPaciente = Console.ReadLine();
+                        Paciente paciente = new Paciente(nomePaciente, dataNascimentoPaciente, cpfPaciente, logradouroPaciente, numeroPaciente, bairroPaciente, complementoPaciente);
                         //SALVAR O PACIENTE EM ALGUM LUGAR
 
                         Console.WriteLine("Paciente salvo com sucesso");
@@ -50,6 +50,26 @@ namespace ProjetoClinica
                         Console.ReadLine();
                         break;
                     case 2:
+                        Console.WriteLine("Digite o nome do paciente");
+                        string nomeProfissional = Console.ReadLine();
+                        Console.WriteLine("Digite a data de nascimento do paciente");
+                        DateTime dataNascimentoProfissional = DateTime.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite seu CPF");
+                        string cpfProfissional = Console.ReadLine();
+                        Console.WriteLine("Digite seu Logradouro");
+                        string logradouroProfissional = Console.ReadLine();
+                        Console.WriteLine("Digite o Numero de sua casa");
+                        int numeroProfissional = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Digite seu Bairro");
+                        string bairroProfissional = Console.ReadLine();
+                        Console.WriteLine("Digite seu Complemento");
+                        string complementoProfissional = Console.ReadLine();
+                        Profissional profissional = new Profissional(nomeProfissional, dataNascimentoProfissional, cpfProfissional, logradouroProfissional, numeroProfissional, bairroProfissional, complementoProfissional);
+                        //SALVAR O PROFISSIONAL EM ALGUM LUGAR
+
+                        Console.WriteLine("Paciente salvo com sucesso");
+                        Console.WriteLine("");
+                        Console.ReadLine();
                         break;
                     case 3:
                         break;
