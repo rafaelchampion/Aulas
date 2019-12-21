@@ -47,6 +47,7 @@
     <Compile Include="Entidades\Paciente.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Profissional.cs" />
+    <Compile Include="Helpers\CriadorDeIds.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
