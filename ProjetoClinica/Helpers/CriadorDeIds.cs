@@ -16,27 +16,30 @@ namespace ProjetoClinica.Helpers
         //com o valor "1", ou seja, o menor ID que pode ser atribuído.
         static CriadorDeIds()
         {
-            //Inicializar o valor da propriedade IdPaciente
-            //Inicializar o valor da propriedade IdProfissional
-            //Inicializar o valor da propriedade IdConsulta
+            IdPaciente = 1;                                                      //Inicializar o valor da propriedade IdPaciente
+            IdProfissional = 1;                                              //Inicializar o valor da propriedade IdProfissional
+            IdConsulta = 1;                                                      //Inicializar o valor da propriedade IdConsulta
         }
 
-        //public static int CriarNovoIdPaciente()
-        //{
-        //    ////Retornar o valor atual da propriedade IdPaciente e somar 1 à propriedade para que 
-        //    ////da próxima vez que o método for chamado ele dê um novo ID
-        //}
+        public static int CriarNovoIdPaciente()
+        {
+            idpaciente = IdPaciente;                                                                          //Retornar o valor atual da propriedade IdPaciente e somar 1 à propriedade para que 
+            IdPaciente++;
+            return idpaciente;                                                                                  //da próxima vez que o método for chamado ele dê um novo ID
+        }
 
-        //public static int CriarNovoIdProfissional()
-        //{
-        //    ////Retornar o valor atual da propriedade IdProfissional e somar 1 à propriedade para que 
-        //    ////da próxima vez que o método for chamado ele dê um novo ID
-        //}
+        public static int CriarNovoIdProfissional()
+        {
+            idprofissional = IdProfissional;                                                                             //Retornar o valor atual da propriedade IdProfissional e somar 1 à propriedade para que 
+            IdProfissional++;
+            return idprofissional;                                                          //da próxima vez que o método for chamado ele dê um novo ID
+        }
 
-        //public static int CriarNovoIdConsulta()
-        //{
-        //    ////Retornar o valor atual da propriedade IdConsulta e somar 1 à propriedade para que 
-        //    ////da próxima vez que o método for chamado ele dê um novo ID
-        //}
+        public static int CriarNovoIdConsulta()
+        {
+            idconsulta = IdConsulta;                                                                           //Retornar o valor atual da propriedade IdConsulta e somar 1 à propriedade para que 
+            IdConsulta++;
+            return idconsulta;                                                                          //da próxima vez que o método for chamado ele dê um novo ID
+        }
     }
 }

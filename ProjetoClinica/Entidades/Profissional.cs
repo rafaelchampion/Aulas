@@ -13,6 +13,7 @@ namespace ProjetoClinica.Entidades
 
         public Profissional(string nome, DateTime datanascimento, string CPF, string logradouro, int numero, string bairro, string complemento)
         {
+            this.Id = CriadorDeIds.CriarNovoIdProfissional();
             this.Nome = nome;
             this.DataNascimento = datanascimento;
             this.CPF = CPF;

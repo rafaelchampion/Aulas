@@ -12,6 +12,7 @@ namespace ProjetoClinica.Entidades
         public DateTime DataCadastro { get; set; }
         public Paciente(string nome, DateTime datanascimento, string CPF, string logradouro, int numero, string bairro, string complemento)
         {
+            this.Id = CriadorDeIds.CriarNovoIdPaciente(); 
             this.Nome = nome;
             this.DataNascimento = datanascimento;
             this.CPF = CPF;

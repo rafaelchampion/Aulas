@@ -28,6 +28,7 @@ namespace ProjetoClinica
                 switch (opcaoDigitada)
                 {
                     case 1:
+                        
                         Console.WriteLine("Digite o nome do paciente");
                         string nomePaciente = Console.ReadLine();
                         Console.WriteLine("Digite a data de nascimento do paciente");
@@ -41,10 +42,10 @@ namespace ProjetoClinica
                         Console.WriteLine("Digite seu Bairro");
                         string bairroPaciente = Console.ReadLine();
                         Console.WriteLine("Digite seu Complemento");
-                        string complementoPaciente = Console.ReadLine();
+                        string complementoPaciente = Console.ReadLine();                        
                         Paciente paciente = new Paciente(nomePaciente, dataNascimentoPaciente, cpfPaciente, logradouroPaciente, numeroPaciente, bairroPaciente, complementoPaciente);
                         //SALVAR O PACIENTE EM ALGUM LUGAR
-
+                        Console.Writeline(paciente.Id);
                         Console.WriteLine("Paciente salvo com sucesso");
                         Console.WriteLine("");
                         Console.ReadLine();
@@ -66,7 +67,7 @@ namespace ProjetoClinica
                         string complementoProfissional = Console.ReadLine();
                         Profissional profissional = new Profissional(nomeProfissional, dataNascimentoProfissional, cpfProfissional, logradouroProfissional, numeroProfissional, bairroProfissional, complementoProfissional);
                         //SALVAR O PROFISSIONAL EM ALGUM LUGAR
-
+                        Console.WriteLine(Profissional.Id);
                         Console.WriteLine("Paciente salvo com sucesso");
                         Console.WriteLine("");
                         Console.ReadLine();
