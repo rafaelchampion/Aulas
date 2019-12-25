@@ -23,21 +23,21 @@ namespace ProjetoClinica.Helpers
 
         public static int CriarNovoIdPaciente()
         {
-            idpaciente = IdPaciente;                                                                          //Retornar o valor atual da propriedade IdPaciente e somar 1 à propriedade para que 
+            int idpaciente = IdPaciente;                                                                          //Retornar o valor atual da propriedade IdPaciente e somar 1 à propriedade para que 
             IdPaciente++;
             return idpaciente;                                                                                  //da próxima vez que o método for chamado ele dê um novo ID
         }
 
         public static int CriarNovoIdProfissional()
         {
-            idprofissional = IdProfissional;                                                                             //Retornar o valor atual da propriedade IdProfissional e somar 1 à propriedade para que 
+            int idprofissional = IdProfissional;                                                                             //Retornar o valor atual da propriedade IdProfissional e somar 1 à propriedade para que 
             IdProfissional++;
             return idprofissional;                                                          //da próxima vez que o método for chamado ele dê um novo ID
         }
 
         public static int CriarNovoIdConsulta()
         {
-            idconsulta = IdConsulta;                                                                           //Retornar o valor atual da propriedade IdConsulta e somar 1 à propriedade para que 
+            int idconsulta = IdConsulta;                                                                           //Retornar o valor atual da propriedade IdConsulta e somar 1 à propriedade para que 
             IdConsulta++;
             return idconsulta;                                                                          //da próxima vez que o método for chamado ele dê um novo ID
         }
