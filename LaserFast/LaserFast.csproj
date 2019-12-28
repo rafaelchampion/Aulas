@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BancoDeDados\BancoDeDados.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Colaborador.cs" />
     <Compile Include="Entidades\Comanda.cs" />

@@ -24,5 +24,11 @@ namespace ProjetoClinica.Entidades
             this.Bairro = bairro;
             this.Complemento = complemento;
         }
+        public void ListarDadosProfissional()
+        {
+            Console.WriteLine("Nome:" + Nome);
+            Console.WriteLine("CPF:" + CPF);
+            Console.WriteLine("Data de nascimento:" + DataNascimento);
+        }
     }
 }

@@ -12,11 +12,21 @@ namespace LaserFast.Entidades
         public Cliente(string nome, string cpf, DateTime datanascimento, string logradouro, string cidade)
         {
             this.Id = CriadorIds.CriarNovoId(1);
-            Nome = nome;
-            Cpf = cpf;
-            DataNascimento = datanascimento;
-            Logradouro = logradouro;
-            Cidade = cidade;
+            this.Nome = nome;
+            this.Cpf = cpf;
+            this.DataNascimento = datanascimento;
+            this.Logradouro = logradouro;
+            this.Cidade = cidade;
+        }
+        public void ListarDadosCliente()
+        {
+            Console.Clear();
+            Console.WriteLine("Nome: " + Nome);
+            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine("Data de nascimento: " + DataNascimento);
+            Console.WriteLine("Logradouro: " + Logradouro);
+            Console.WriteLine("Cidade: " + Cidade);
+            Console.WriteLine("\nAperte qualquer tecla para voltar ao Menu Principal.");
         }
     }
 }

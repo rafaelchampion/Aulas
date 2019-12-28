@@ -13,29 +13,33 @@ namespace LaserFast.Entidades
         public DateTime DataConsulta { get; set; }
         public int IdCliente { get; set; }
         public int IdColaborador { get; set; }
-        private const decimal TratamentoPernas = 2690;
-        private const decimal TratamentoCostas = 3590;
-        private const decimal TratamentoPeito = 2190;
-        private const decimal TratamentoVirilha = 6695;
+        public string ItemComanda { get; set; }
+        private const decimal ValorTratamentoPernas = 2690;
+        private const decimal ValorTratamentoCostas = 3590;
+        private const decimal ValorTratamentoPeito = 2190;
+        private const decimal ValorTratamentoVirilha = 6695;
+        public const string NomeTratamentoPerna = "Pernas inteiras";
+        public const string NomeTratamentoCostas = "Costas";
+        public const string NomeTratamentoPeito = "Peito";
+        public const string NomeTratamentoVirilha = "Virilha";
         public Comanda(int IdCliente, int IdColaborador)
         {
             this.IdComanda = CriadorIds.CriarNovoId(3);
-            this.IdCliente = CriadorIds.CriarNovoId(1);
-            this.IdColaborador = CriadorIds.CriarNovoId(2);
-        }    
-
+            this.IdCliente = IdCliente;
+            this.IdColaborador = IdColaborador;
+        }
         public decimal ValorTratamentos(string TipoTratamento)
         {
             switch (TipoTratamento)
             {
                 case "Pernas":
-                    return TratamentoPernas;
+                    return ValorTratamentoPernas;
                 case "Costas":
-                    return TratamentoCostas;
+                    return ValorTratamentoCostas;
                 case "Peito":
-                    return TratamentoPeito;
+                    return ValorTratamentoPeito;
                 case "Virilha":
-                    return TratamentoVirilha;
+                    return ValorTratamentoVirilha;
                 default:
                     Console.WriteLine("Verifica a string seu bobão");
                     return 0;
@@ -44,16 +48,34 @@ namespace LaserFast.Entidades
         public void Tratamento()
         {
             Console.WriteLine("Escolha um tratamento abaixo\n");
-            Console.WriteLine("1. Pernas inteiras\n");
-            Console.WriteLine("2. Peito\n");
-            Console.WriteLine("3. Costas inteiras\n");
-            Console.WriteLine("4. Virilhas\n");
-            string key = Console.ReadLine();
+            Console.WriteLine("1. " + NomeTratamentoPerna);
+            Console.WriteLine("2. " + NomeTratamentoCostas);
+            Console.WriteLine("3. " + NomeTratamentoPeito);
+            Console.WriteLine("4. " + NomeTratamentoVirilha);
+            int key = int.Parse(Console.ReadLine());
+            if(key == 1)
+            {
+                ItemComanda = ("Tratamento: " + NomeTratamentoPerna + "\n" + "Valor: " + ValorTratamentos("Pernas"));
+
+            }
+            else if (key == 2)
+            {
+                ItemComanda = ("Tratamento: " + NomeTratamentoCostas + "\n" + "Valor: " + ValorTratamentos("Costas"));
+            }
+            if (key == 3)
+            {
+                ItemComanda = ("Tratamento: " + NomeTratamentoPeito + "\n" + "Valor: " + ValorTratamentos("Peito"));
+            }
+            else if (key == 4)
+            {
+                ItemComanda = ("Tratamento: " + NomeTratamentoVirilha + "Valor: " + ValorTratamentos("Virilha"));
+            }
+
             switch (key)
             {
-                case "1":
+                case 1:
                     Console.Clear();
-                    Console.WriteLine("\nTratamento escolhido: Pernas");
+                    Console.WriteLine("\nTratamento escolhido:" + NomeTratamentoPerna);
                     Console.WriteLine("R$" + ValorTratamentos("Pernas"));
 
                     Console.WriteLine("\nDeseja confimar? y/n");
@@ -79,10 +101,10 @@ namespace LaserFast.Entidades
                         Console.WriteLine("\nVocê foi redirecionado ao menu principal");
                     }
                     break;
-                case "2":
+                case 2:
                     Console.Clear();
-                    Console.WriteLine("\nTratamento escolhido: Costas");
-                    Console.WriteLine("R$" + ValorTratamentos("Peito"));
+                    Console.WriteLine("\nTratamento escolhido: " + NomeTratamentoCostas);
+                    Console.WriteLine("R$" + ValorTratamentos("Costas"));
 
                     Console.WriteLine("\nDeseja confimar? y/n");
                     string confirmarPeito = Console.ReadLine();
@@ -107,10 +129,10 @@ namespace LaserFast.Entidades
                         Console.WriteLine("\nVocê foi redirecionado ao menu principal");
                     }
                     break;
-                case "3":
+                case 3:
                     Console.Clear();
-                    Console.WriteLine("\nTratamento escolhido: Costas");
-                    Console.WriteLine("R$" + ValorTratamentos("Costas"));
+                    Console.WriteLine("\nTratamento escolhido: " + NomeTratamentoPeito );
+                    Console.WriteLine("R$" + ValorTratamentos("Peito"));
                     Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
                     Console.ReadLine();
 
@@ -135,9 +157,9 @@ namespace LaserFast.Entidades
                         Console.WriteLine("\nVocê foi redirecionado ao menu principal");
                     }
                     break;
-                case "4":
+                case 4:
                     Console.Clear();
-                    Console.WriteLine("\nTratamento escolhido: Virilha");
+                    Console.WriteLine("\nTratamento escolhido: " + NomeTratamentoVirilha);
                     Console.WriteLine("R$" + ValorTratamentos("Virilha"));
                     Console.WriteLine("\nDeseja confimar? y/n");
                     string confirmarVirilha = Console.ReadLine();
@@ -168,6 +190,14 @@ namespace LaserFast.Entidades
                     Console.WriteLine("\nVocê foi redirecionado ao menu principal");
                     break;
             }
+        }
+        public void ListarDadosComanda()
+        {
+            Console.Clear();
+            Console.WriteLine("\nId Comanda: " + IdComanda);
+            Console.WriteLine("\nId Cliente: " + IdCliente);
+            Console.WriteLine("\nId Colaborador: " + IdColaborador);
+            Console.WriteLine(ItemComanda);
         }
     }
 }

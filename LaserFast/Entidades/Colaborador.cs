@@ -18,5 +18,14 @@ namespace LaserFast.Entidades
             Logradouro = logradouro;
             Cidade = cidade;
         }
+        public void ListarDadosColaborador()
+        {
+            Console.Clear();
+            Console.WriteLine("Nome: " + Nome);
+            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine("Data de nascimento: " + DataNascimento);
+            Console.WriteLine("Logradouro: " + Logradouro);
+            Console.WriteLine("Cidade: \n" + Cidade);
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LaserFast.Entidades;
+using LaserFast.BancoDeDados;
 
 namespace LaserFast
 {
@@ -18,12 +19,21 @@ namespace LaserFast
                 Console.WriteLine("Escolha uma opção abaixo.\n");
                 Console.WriteLine("1. Cadastrar cliente");
                 Console.WriteLine("2. Cadastrar colaborador");
-                Console.WriteLine("3. Criar nova comanda");
-                Console.WriteLine("4. Logout");
-                string key = Console.ReadLine();
+                Console.WriteLine("3. Cadastrar comanda");
+
+                Console.WriteLine("\n4. Listar Clientes");
+                Console.WriteLine("5. Listar Colaboradores");
+                Console.WriteLine("6. Listar Comandas");
+
+                Console.WriteLine("\n7. Buscar Clientes");
+                Console.WriteLine("8. Buscar Colaboradores");
+                Console.WriteLine("9. Buscar Comandas");
+
+                Console.WriteLine("\n0. Logout");
+                int key = int.Parse(Console.ReadLine());
                 switch (key)
                 {
-                    case "1":
+                    case 1:
                         Console.Clear();
                         Console.WriteLine("Digite o nome do cliente");
                         string nomeCliente = Console.ReadLine();
@@ -39,7 +49,7 @@ namespace LaserFast
                         Console.WriteLine("Seu número indentificador é: " + cliente.Id);
                         Console.ReadLine();
                         break;
-                    case "2":
+                    case 2:
                         Console.Clear();
                         Console.WriteLine("Digite o nome do Colaborador");
                         string nomeColaborador = Console.ReadLine();
@@ -49,13 +59,13 @@ namespace LaserFast
                         DateTime datanascimentoColaborador = DateTime.Parse(Console.ReadLine());
                         Console.WriteLine("Digite o Logradouro do Colaborador");
                         string logradouroColaborador = Console.ReadLine();
-                        Console.WriteLine("Digite a cidade do cliente");
+                        Console.WriteLine("Digite a cidade do Colaborador");
                         string cidadeColaborador = Console.ReadLine();
                         Colaborador colaborador = new Colaborador(nomeColaborador, cpfColaborador, datanascimentoColaborador, logradouroColaborador, cidadeColaborador);
                         Console.WriteLine("Seu número indentificador é: " + colaborador.Id);
                         Console.ReadLine();
                         break;
-                    case "3":
+                    case 3:
                         Console.Write("Cliente, digite seu número identificador: ");
                         int numIdCliente = int.Parse(Console.ReadLine());
                         Console.Write("Colaborador, digite seu número identificador: ");
@@ -65,12 +75,75 @@ namespace LaserFast
                         numIdColaborador = comanda.IdColaborador;
                         Console.Clear();
                         comanda.Tratamento();
-
                         break;
-                    case "4":
+                    case 4:
+                        foreach(Cliente item in BancoDeDados.BancoDeDados.ListaClientes)
+                        {
+                            item.ListarDadosCliente();
+                        }
+                        break;
+                    case 5:
+                        foreach (Colaborador item in BancoDeDados.BancoDeDados.ListaColaboradores)
+                        {
+                            item.ListarDadosColaborador();
+                        }
+                        break;
+                    case 6:
+                        foreach (Comanda item in BancoDeDados.BancoDeDados.ListarComandas)
+                        {
+                            item.ListarDadosComanda();
+                        }
+                        break;
+                    case 7:
+                        Console.Clear();
+                        Console.WriteLine("\nDigite o nome do cliente: ");
+                        string nomeClienteBusca = Console.ReadLine().ToLower();
+                        Cliente clienteExibir = BancoDeDados.BancoDeDados.ListaClientes.FirstOrDefault(x => x.Nome.ToLower().Contains(nomeClienteBusca));
+                        if(clienteExibir != null)
+                        {
+                            clienteExibir.ListarDadosCliente();
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nCliente Não Encontrado.");
+                        }
+                        break;
+                    case 8:
+                        Console.Clear();
+                        Console.WriteLine("\nDigite o nome do colaborador: ");
+                        string nomeColaboradorBusca = Console.ReadLine().ToLower();
+                        Colaborador colaboradorExibir = BancoDeDados.BancoDeDados.ListaColaboradores.FirstOrDefault(x => x.Nome.ToLower().Contains(nomeColaboradorBusca));
+                        if (colaboradorExibir != null)
+                        {
+                            colaboradorExibir.ListarDadosColaborador();
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nColaborador Não Encontrado.");
+                        }
+                        break;
+                    case 9:
+                        Console.Clear();
+                        Console.WriteLine("\nDigite o numero da comanda: ");
+                        int idComandaBusca = int.Parse(Console.ReadLine());
+                        Comanda comandaExibir = BancoDeDados.BancoDeDados.ListarComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
+                        if (comandaExibir != null)
+                        {
+                            comandaExibir.ListarDadosComanda();
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nComanda Não Encontrada.");
+                        }
+                        break;
+                    case 0:
                         Console.WriteLine("\nVolte sempre.");
                         execProgram = false;
                         Console.ReadLine();
+                        break;
+                    case 11:
+                        break;
+                    case 12:
                         break;
                     default:
                         Console.Clear();
