@@ -31,6 +31,7 @@ namespace LaserFast.BancoDeDados
         public static void AddComanda(Comanda comanda)
         {
             ListarComandas.Add(comanda);
+
         }
     }
 }
