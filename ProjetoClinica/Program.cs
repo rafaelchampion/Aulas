@@ -12,6 +12,7 @@ namespace ProjetoClinica
     {
         static void Main(string[] args)
         {
+            BancoDeDados.BancoDeDados.CarregarArquivosJson();
             ExibirMenu();
         }
         public static void ExibirMenu()
@@ -72,6 +73,7 @@ namespace ProjetoClinica
                         string complementoProfissional = Console.ReadLine();
                         Profissional profissional = new Profissional(nomeProfissional, dataNascimentoProfissional, cpfProfissional, logradouroProfissional, numeroProfissional, bairroProfissional, complementoProfissional);
                         //SALVAR O PROFISSIONAL EM ALGUM LUGAR
+                        BancoDeDados.BancoDeDados.AddProfissional(profissional);
                         Console.WriteLine(profissional.Id);
                         Console.WriteLine("Paciente salvo com sucesso");
                         Console.WriteLine("");

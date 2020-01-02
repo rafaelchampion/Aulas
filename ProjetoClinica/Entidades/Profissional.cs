@@ -15,7 +15,10 @@ namespace ProjetoClinica.Entidades
 
         public Profissional(string nome, DateTime datanascimento, string CPF, string logradouro, int numero, string bairro, string complemento)
         {
-            this.Id = CriadorDeIds.CriarNovoIdProfissional();
+            if (this.Id != 0)
+            {
+                this.Id = CriadorDeIds.CriarNovoIdProfissional();
+            }
             this.Nome = nome;
             this.DataNascimento = datanascimento;
             this.CPF = CPF;
@@ -24,6 +27,12 @@ namespace ProjetoClinica.Entidades
             this.Bairro = bairro;
             this.Complemento = complemento;
         }
+
+        public Profissional()
+        {
+
+        }
+
         public void ListarDadosProfissional()
         {
             Console.WriteLine("Nome:" + Nome);

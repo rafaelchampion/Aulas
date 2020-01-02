@@ -21,6 +21,21 @@ namespace ProjetoClinica.Helpers
             IdConsulta = 1;                                                      //Inicializar o valor da propriedade IdConsulta
         }
 
+        public static void IncializarIdPaciente(int id)
+        {
+            IdPaciente = id;
+        }
+
+        public static void IncializarIdProfissional(int id)
+        {
+            IdProfissional = id;
+        }
+
+        public static void IncializarIdPConsulta(int id)
+        {
+            IdConsulta = id;
+        }
+
         public static int CriarNovoIdPaciente()
         {
             int idpaciente = IdPaciente;                                                                          //Retornar o valor atual da propriedade IdPaciente e somar 1 à propriedade para que 
