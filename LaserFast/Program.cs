@@ -12,6 +12,7 @@ namespace LaserFast
     {
         static void Main(string[] args)
         {
+            BancoDeDados.BancoDeDados.CarregarArquivosJson();
             bool execProgram = true;
             while (execProgram)
             {
@@ -29,7 +30,8 @@ namespace LaserFast
                 Console.WriteLine("8. Buscar Colaboradores");
                 Console.WriteLine("9. Buscar Comandas");
 
-                Console.WriteLine("\n0. Logout");
+                Console.WriteLine("\n10. Quantidade de clientes");
+                Console.WriteLine("\n11. Sair");
                 int key = int.Parse(Console.ReadLine());
                 switch (key)
                 {
@@ -37,42 +39,48 @@ namespace LaserFast
                         Console.Clear();
                         Console.WriteLine("Digite o nome do cliente");
                         string nomeCliente = Console.ReadLine();
-                        Console.WriteLine("Digite o CPF do cliente");
+                        Console.WriteLine("\nDigite o CPF do cliente");
                         string cpfCliente = Console.ReadLine();
-                        Console.WriteLine("Digite a data de nascimento do cliente");
+                        Console.WriteLine("\nDigite a data de nascimento do cliente");
                         DateTime datanascimentoCliente = DateTime.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o Logradouro do cliente");
+                        Console.WriteLine("\nDigite o Logradouro do cliente");
                         string logradouroCliente = Console.ReadLine();
-                        Console.WriteLine("Digite a cidade do cliente");
+                        Console.WriteLine("\nDigite a cidade do cliente");
                         string cidadeCliente = Console.ReadLine();
                         Cliente cliente = new Cliente(nomeCliente, cpfCliente, datanascimentoCliente, logradouroCliente, cidadeCliente);
-                        Console.WriteLine("Seu número indentificador é: " + cliente.Id);
+                        BancoDeDados.BancoDeDados.AddCliente(cliente);
+                        Console.Clear();
+                        Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Digite o nome do Colaborador");
+                        Console.WriteLine("\nDigite o nome do Colaborador");
                         string nomeColaborador = Console.ReadLine();
-                        Console.WriteLine("Digite o CPF do Colaborador");
+                        Console.WriteLine("\nDigite o CPF do Colaborador");
                         string cpfColaborador = Console.ReadLine();
-                        Console.WriteLine("Digite a data de nascimento do Colaborador");
+                        Console.WriteLine("\nDigite a data de nascimento do Colaborador");
                         DateTime datanascimentoColaborador = DateTime.Parse(Console.ReadLine());
-                        Console.WriteLine("Digite o Logradouro do Colaborador");
+                        Console.WriteLine("\nDigite o Logradouro do Colaborador");
                         string logradouroColaborador = Console.ReadLine();
-                        Console.WriteLine("Digite a cidade do Colaborador");
+                        Console.WriteLine("\nDigite a cidade do Colaborador");
                         string cidadeColaborador = Console.ReadLine();
                         Colaborador colaborador = new Colaborador(nomeColaborador, cpfColaborador, datanascimentoColaborador, logradouroColaborador, cidadeColaborador);
-                        Console.WriteLine("Seu número indentificador é: " + colaborador.Id);
+                        BancoDeDados.BancoDeDados.AddColaborador(colaborador);
+                        Console.Clear();
+                        Console.WriteLine("Seu número indentificador é: \n" + colaborador.Id);
                         Console.ReadLine();
                         break;
                     case 3:
                         Console.Write("Cliente, digite seu número identificador: ");
                         int numIdCliente = int.Parse(Console.ReadLine());
+                        Console.Clear();
                         Console.Write("Colaborador, digite seu número identificador: ");
                         int numIdColaborador = int.Parse(Console.ReadLine());                                                
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
+                        BancoDeDados.BancoDeDados.AddComanda(comanda);
                         Console.Clear();
                         comanda.Tratamento();
                         break;
@@ -136,12 +144,13 @@ namespace LaserFast
                             Console.WriteLine("\nComanda Não Encontrada.");
                         }
                         break;
-                    case 0:
+                    case 10:
+                        Console.WriteLine("Existem " + BancoDeDados.BancoDeDados.ListaClientes.Count() + " Clientes cadastrados.");
+                        break;
+                    case 11:
                         Console.WriteLine("\nVolte sempre.");
                         execProgram = false;
                         Console.ReadLine();
-                        break;
-                    case 11:
                         break;
                     case 12:
                         break;

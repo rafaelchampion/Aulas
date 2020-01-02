@@ -18,6 +18,20 @@ namespace LaserFast.Helpers
             ClienteId = 1;
             ComandaId = 1;
         }
+
+        public static void InicializarClienteId(int id)
+        {
+            ClienteId = id;
+        }
+        public static void InicializarColaboradorId(int id)
+        {
+            ColaboradorId = id;
+        }
+        public static void InicializarComandaId(int id)
+        {
+            ComandaId = id;
+        }
+
         public static int CriarNovoId(int tipoId)
         {
             if (tipoId == 1)

@@ -9,6 +9,8 @@ namespace LaserFast.Entidades
 {
     public class Cliente : Pessoa
     {
+
+        public DateTime DataCadastro { get; set; }
         public Cliente(string nome, string cpf, DateTime datanascimento, string logradouro, string cidade)
         {
             this.Id = CriadorIds.CriarNovoId(1);
@@ -17,16 +19,19 @@ namespace LaserFast.Entidades
             this.DataNascimento = datanascimento;
             this.Logradouro = logradouro;
             this.Cidade = cidade;
+            this.DataCadastro = DateTime.Now;
+        }
+        public Cliente()
+        {
+
         }
         public void ListarDadosCliente()
         {
-            Console.Clear();
-            Console.WriteLine("Nome: " + Nome);
+            Console.WriteLine("\nNome: " + Nome);
             Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Data de nascimento: " + DataNascimento);
             Console.WriteLine("Logradouro: " + Logradouro);
-            Console.WriteLine("Cidade: " + Cidade);
-            Console.WriteLine("\nAperte qualquer tecla para voltar ao Menu Principal.");
+            Console.WriteLine("Cidade: \n" + Cidade);
         }
     }
 }
