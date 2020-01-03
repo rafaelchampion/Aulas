@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoClinica.Helpers;
+
 
 namespace ProjetoClinica.Entidades
 {
@@ -13,6 +15,10 @@ namespace ProjetoClinica.Entidades
 
         public Profissional(string nome, DateTime datanascimento, string CPF, string logradouro, int numero, string bairro, string complemento)
         {
+            if (this.Id != 0)
+            {
+                this.Id = CriadorDeIds.CriarNovoIdProfissional();
+            }
             this.Nome = nome;
             this.DataNascimento = datanascimento;
             this.CPF = CPF;
@@ -20,6 +26,18 @@ namespace ProjetoClinica.Entidades
             this.Numero = numero;
             this.Bairro = bairro;
             this.Complemento = complemento;
+        }
+
+        public Profissional()
+        {
+
+        }
+
+        public void ListarDadosProfissional()
+        {
+            Console.WriteLine("Nome:" + Nome);
+            Console.WriteLine("CPF:" + CPF);
+            Console.WriteLine("Data de nascimento:" + DataNascimento);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ProjetoContaBancaria
          esta propriedade fique exposta.*/
         public void Sacar(decimal valorSaque)
         {
-            if(saldo - valorSaque >= 0)
+            if (saldo - valorSaque >= 0)
             {
                 saldo -= valorSaque;
             }
