@@ -28,14 +28,17 @@ namespace LaserFast.BancoDeDados
         public static void AddCliente (Cliente cliente)
         {
             ListaClientes.Add(cliente);
+            SalvarArquivoJson(TipoBancoDeDados.Cliente);
         }
         public static void AddColaborador(Colaborador colaborador)
         {
             ListaColaboradores.Add(colaborador);
+            SalvarArquivoJson(TipoBancoDeDados.Colaborador);
         }
         public static void AddComanda(Comanda comanda)
         {
             ListarComandas.Add(comanda);
+            SalvarArquivoJson(TipoBancoDeDados.Comanda);
 
         }
 

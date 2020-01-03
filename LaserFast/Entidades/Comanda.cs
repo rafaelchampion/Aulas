@@ -28,6 +28,11 @@ namespace LaserFast.Entidades
             this.IdCliente = IdCliente;
             this.IdColaborador = IdColaborador;
         }
+
+        public Comanda()
+        {
+
+        }
         public decimal ValorTratamentos(string TipoTratamento)
         {
             switch (TipoTratamento)

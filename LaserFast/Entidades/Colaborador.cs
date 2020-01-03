@@ -18,6 +18,10 @@ namespace LaserFast.Entidades
             Logradouro = logradouro;
             Cidade = cidade;
         }
+        public Colaborador()
+        {
+
+        }
         public void ListarDadosColaborador()
         {
             Console.Clear();
