@@ -24,7 +24,7 @@ namespace LaserFast.Entidades
         }
         public void ListarDadosColaborador()
         {
-            Console.Clear();
+            Console.WriteLine("\nIdentificador: " + Id);
             Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Data de nascimento: " + DataNascimento);

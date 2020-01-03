@@ -72,6 +72,7 @@ namespace LaserFast
                         Console.ReadLine();
                         break;
                     case 3:
+                        Console.Clear();
                         Console.Write("Cliente, digite seu número identificador: ");
                         int numIdCliente = int.Parse(Console.ReadLine());
                         Console.Clear();
@@ -80,9 +81,9 @@ namespace LaserFast
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
+                        comanda.Tratamento();
                         BancoDeDados.BancoDeDados.AddComanda(comanda);
                         Console.Clear();
-                        comanda.Tratamento();
                         break;
                     case 4:
                         foreach(Cliente item in BancoDeDados.BancoDeDados.ListaClientes)
@@ -97,7 +98,7 @@ namespace LaserFast
                         }
                         break;
                     case 6:
-                        foreach (Comanda item in BancoDeDados.BancoDeDados.ListarComandas)
+                        foreach (Comanda item in BancoDeDados.BancoDeDados.ListaComandas)
                         {
                             item.ListarDadosComanda();
                         }
@@ -134,7 +135,7 @@ namespace LaserFast
                         Console.Clear();
                         Console.WriteLine("\nDigite o numero da comanda: ");
                         int idComandaBusca = int.Parse(Console.ReadLine());
-                        Comanda comandaExibir = BancoDeDados.BancoDeDados.ListarComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
+                        Comanda comandaExibir = BancoDeDados.BancoDeDados.ListaComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
                         if (comandaExibir != null)
                         {
                             comandaExibir.ListarDadosComanda();

@@ -82,7 +82,6 @@ namespace LaserFast.Entidades
                     Console.Clear();
                     Console.WriteLine("\nTratamento escolhido:" + NomeTratamentoPerna);
                     Console.WriteLine("R$" + ValorTratamentos("Pernas"));
-
                     Console.WriteLine("\nDeseja confimar? y/n");
                     string confirmarPernas = Console.ReadLine();
                     if (confirmarPernas == "y")
@@ -110,7 +109,6 @@ namespace LaserFast.Entidades
                     Console.Clear();
                     Console.WriteLine("\nTratamento escolhido: " + NomeTratamentoCostas);
                     Console.WriteLine("R$" + ValorTratamentos("Costas"));
-
                     Console.WriteLine("\nDeseja confimar? y/n");
                     string confirmarPeito = Console.ReadLine();
                     if (confirmarPeito == "y")
@@ -138,9 +136,6 @@ namespace LaserFast.Entidades
                     Console.Clear();
                     Console.WriteLine("\nTratamento escolhido: " + NomeTratamentoPeito );
                     Console.WriteLine("R$" + ValorTratamentos("Peito"));
-                    Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
-                    Console.ReadLine();
-
                     Console.WriteLine("\nDeseja confimar? y/n");
                     string confirmarCostas = Console.ReadLine();
                     if (confirmarCostas == "y")
@@ -198,11 +193,10 @@ namespace LaserFast.Entidades
         }
         public void ListarDadosComanda()
         {
-            Console.Clear();
-            Console.WriteLine("\nId Comanda: " + IdComanda);
-            Console.WriteLine("\nId Cliente: " + IdCliente);
-            Console.WriteLine("\nId Colaborador: " + IdColaborador);
-            Console.WriteLine(ItemComanda);
+            Console.WriteLine("Id Comanda: " + IdComanda);
+            Console.WriteLine("Id Cliente: " + IdCliente);
+            Console.WriteLine("Id Colaborador: " + IdColaborador);
+            Console.WriteLine(ItemComanda + "\n");
         }
     }
 }
