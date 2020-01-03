@@ -13,7 +13,7 @@ namespace LaserFast.BancoDeDados
    public static class BancoDeDados
     {
         private const string DriveArquivoJson = "C:\\";
-        private const string CaminhoArquivoJson = "BancoDeDados\\";
+        private const string CaminhoArquivoJson = "Users\\SOLANOG\\Documents\\BancoDeDados\\";
         public static List<Cliente> ListaClientes { get; set; }
         public static List<Colaborador> ListaColaboradores { get; set; }
         public static List<Comanda> ListaComandas { get; set; }
@@ -41,6 +41,16 @@ namespace LaserFast.BancoDeDados
             SalvarArquivoJson(TipoBancoDeDados.Comanda);
 
         }
+
+        public static bool VerificarExistenciaCliente(int id)
+        {
+            bool existe = ListaClientes.FirstOrDefault(x => x.Id == id) != null;           
+            return existe;
+        }
+
+
+
+
 
         private static void SalvarArquivoJson(TipoBancoDeDados tipo)
         {
