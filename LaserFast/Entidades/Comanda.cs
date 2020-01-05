@@ -20,7 +20,7 @@ namespace LaserFast.Entidades
         private const decimal ValorTratamentoVirilha = 6695;
         public Comanda(int IdCliente, int IdColaborador)
         {
-            this.Id = CriadorIds.CriarNovoId(3);
+            this.Id = CriadorIds.CriarNovoId(TipoBancoDeDados.Comanda);
             this.IdCliente = IdCliente;
             this.IdColaborador = IdColaborador;
             this.DataConsulta = DateTime.Now;
@@ -64,7 +64,7 @@ namespace LaserFast.Entidades
                 ItemComanda = ("Tratamento: " + TipoTratamento.Costas + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Costas));
                 TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Costas);
             }
-            if (key == 3)
+            else if (key == 3)
             {
                 ItemComanda = ("Tratamento: " + TipoTratamento.Peito + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Peito));
                 TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Peito);
@@ -84,7 +84,7 @@ namespace LaserFast.Entidades
         private bool ConfirmarTratamento(TipoTratamento tipo)
         {
             Console.Clear();
-            Console.WriteLine("\nTratamento escolhido:" + tipo);
+            Console.WriteLine("\nTratamento escolhido: " + tipo);
             Console.WriteLine("R$" + ValorTratamentos(tipo));
             Console.WriteLine("\nDeseja confimar? y/n");
             string confirmarTratamento = Console.ReadLine();
@@ -93,6 +93,7 @@ namespace LaserFast.Entidades
                 Console.Clear();
                 Console.WriteLine("\nTratamento escolhido com sucesso.");
                 Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
+                Console.ReadLine();
                 return true;
             }
             else if (confirmarTratamento.ToLower() == "n")

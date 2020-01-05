@@ -11,7 +11,7 @@ namespace LaserFast.Entidades
     {
         public Colaborador(string nome, string cpf, DateTime datanascimento, string logradouro, string cidade)
         {
-            this.Id = CriadorIds.CriarNovoId(2);
+            this.Id = CriadorIds.CriarNovoId(TipoBancoDeDados.Colaborador);
             Nome = nome;
             Cpf = cpf;
             DataNascimento = datanascimento;

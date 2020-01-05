@@ -31,7 +31,8 @@ namespace LaserFast
                 Console.WriteLine("9. Buscar Comandas");
 
                 Console.WriteLine("\n10. Quantidade de clientes");
-                Console.WriteLine("\n11. Sair");
+                Console.WriteLine("\n11. Cadastrar Tratamentos");
+                Console.WriteLine("\n12. Sair");
                 int key = int.Parse(Console.ReadLine());
                 switch (key)
                 {
@@ -75,15 +76,31 @@ namespace LaserFast
                         Console.Clear();
                         bool check = false;
                         int numIdCliente;
+                        int numIdColaborador;
+                        Console.Write("Cliente, digite seu número identificador: ");                        
                         do
                         {
-                            Console.Write("Cliente, digite seu número identificador: ");
                             numIdCliente = int.Parse(Console.ReadLine());
                             check = BancoDeDados.BancoDeDados.VerificarExistenciaCliente(numIdCliente);
+                            if (check == false)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Identificador errado");
+                                Console.Write("Digite novamente: ");
+                            }
                         } while (!check);
-                        Console.Clear();
                         Console.Write("Colaborador, digite seu número identificador: ");
-                        int numIdColaborador = int.Parse(Console.ReadLine());
+                        do
+                        {
+                            numIdColaborador = int.Parse(Console.ReadLine());
+                            check = BancoDeDados.BancoDeDados.VerificarExistenciaColaborador(numIdColaborador);
+                            if (check == false)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Identificador errado");
+                                Console.Write("Digite novamente: ");
+                            }
+                        } while (!check);
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
@@ -158,12 +175,20 @@ namespace LaserFast
                         Console.WriteLine("Existem " + BancoDeDados.BancoDeDados.ListaClientes.Count() + " Clientes cadastrados.");
                         break;
                     case 11:
+                        Console.Clear();
+                        Console.WriteLine("Digite o nome do tratamento que deseja cadastrar");
+                        string nomeTratamento = Console.ReadLine();
+                        Console.WriteLine("Digite o valor do tratamento digitado previamente");
+                        decimal valorTratamento = decimal.Parse(Console.ReadLine());
+                        Tratamento tratamento = new Tratamento(nomeTratamento, valorTratamento);
+                        BancoDeDados.BancoDeDados.AddTratamento(tratamento);
+                        break;
+                    case 12:
                         Console.WriteLine("\nVolte sempre.");
                         execProgram = false;
                         Console.ReadLine();
                         break;
-                    case 12:
-                        break;
+
                     default:
                         Console.Clear();
                         Console.WriteLine("\nOpção Invalida");

@@ -13,7 +13,7 @@ namespace LaserFast.Entidades
         public DateTime DataCadastro { get; set; }
         public Cliente(string nome, string cpf, DateTime datanascimento, string logradouro, string cidade)
         {
-            this.Id = CriadorIds.CriarNovoId(1);
+            this.Id = CriadorIds.CriarNovoId(TipoBancoDeDados.Cliente);
             this.Nome = nome;
             this.Cpf = cpf;
             this.DataNascimento = datanascimento;
@@ -32,7 +32,7 @@ namespace LaserFast.Entidades
             Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Data de nascimento: " + DataNascimento);
             Console.WriteLine("Logradouro: " + Logradouro);
-            Console.WriteLine("Cidade: \n" + Cidade);
+            Console.WriteLine("Cidade: " + Cidade);
         }
     }
 }

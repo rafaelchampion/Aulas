@@ -12,17 +12,19 @@ namespace LaserFast.BancoDeDados
 {
    public static class BancoDeDados
     {
-        private const string DriveArquivoJson = "C:\\";
-        private const string CaminhoArquivoJson = "Users\\SOLANOG\\Documents\\BancoDeDados\\";
+        private const string DriveArquivoJson = "D:\\";
+        private const string CaminhoArquivoJson = "BancoDeDados\\";
         public static List<Cliente> ListaClientes { get; set; }
         public static List<Colaborador> ListaColaboradores { get; set; }
         public static List<Comanda> ListaComandas { get; set; }
+        public static List<Tratamento> ListaTratamentos { get; set; }
 
         static BancoDeDados()
         {
             ListaClientes = new List<Cliente>();
             ListaColaboradores = new List<Colaborador>();
             ListaComandas = new List<Comanda>();
+            ListaTratamentos = new List<Tratamento>();
         }
         public static void AddCliente (Cliente cliente)
         {
@@ -38,12 +40,22 @@ namespace LaserFast.BancoDeDados
         {
             ListaComandas.Add(comanda);
             SalvarArquivoJson(TipoBancoDeDados.Comanda);
-
         }
+        public static void AddTratamento(Tratamento tratamento)
+        {
+            ListaTratamentos.Add(tratamento);
+            SalvarArquivoJson(TipoBancoDeDados.Tratamento);
+        }
+
 
         public static bool VerificarExistenciaCliente(int id)
         {
             bool existe = ListaClientes.FirstOrDefault(x => x.Id == id) != null;           
+            return existe;
+        }
+        public static bool VerificarExistenciaColaborador(int id)
+        {
+            bool existe = ListaColaboradores.FirstOrDefault(x => x.Id == id) != null;
             return existe;
         }
 
@@ -72,6 +84,12 @@ namespace LaserFast.BancoDeDados
                     string jsonComandas = JsonConvert.SerializeObject(ListaComandas);
                     escritorComandas.WriteLine(jsonComandas);
                     escritorComandas.Dispose();
+                    break;
+                case TipoBancoDeDados.Tratamento:
+                    StreamWriter escritorTratamentos = new StreamWriter($"{DriveArquivoJson}{CaminhoArquivoJson}ListaTratamentos.json");
+                    string jsonTratamentos = JsonConvert.SerializeObject(ListaTratamentos);
+                    escritorTratamentos.WriteLine(jsonTratamentos);
+                    escritorTratamentos.Dispose();
                     break;
             }
         }
@@ -103,6 +121,15 @@ namespace LaserFast.BancoDeDados
                 ListaComandas = JsonConvert.DeserializeObject<List<Comanda>>(comandas);
                 int maxId = ListaComandas.Max(x => x.Id) + 1;
                 CriadorIds.InicializarComandaId(maxId);
+            }
+            if (File.Exists($"{DriveArquivoJson}{CaminhoArquivoJson}ListaTratamentos.json"))
+            {
+                StreamReader leitordeArquivoTratamentos = new StreamReader($"{DriveArquivoJson}{CaminhoArquivoJson}ListaTratamentos.json");
+                string tratamentos = leitordeArquivoTratamentos.ReadToEnd();
+                leitordeArquivoTratamentos.Dispose();
+                ListaTratamentos = JsonConvert.DeserializeObject<List<Tratamento>>(tratamentos);
+                int maxId = ListaTratamentos.Max(x => x.Id) + 1;
+                CriadorIds.InicializarTratamentoId(maxId);
             }
         }
     }

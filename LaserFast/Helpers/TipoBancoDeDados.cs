@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LaserFast.Helpers
 {
-    enum TipoBancoDeDados
+    public enum TipoBancoDeDados
     {
         Cliente,
         Colaborador,
-        Comanda
+        Comanda,
+        Tratamento
     }
 }

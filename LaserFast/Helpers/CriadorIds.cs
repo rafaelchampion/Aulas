@@ -11,12 +11,14 @@ namespace LaserFast.Helpers
         public static int ColaboradorId { get; set; }
         public static int ClienteId { get; set; }
         public static int ComandaId { get; set; }
+        public static int TratamentoId { get; set; }
 
         static CriadorIds()
         {
             ColaboradorId = 1;
             ClienteId = 1;
             ComandaId = 1;
+            TratamentoId = 1;
         }
 
         public static void InicializarClienteId(int id)
@@ -32,33 +34,69 @@ namespace LaserFast.Helpers
             ComandaId = id;
         }
 
-        public static int CriarNovoId(int tipoId)
+        public static void InicializarTratamentoId(int id)
         {
-            if (tipoId == 1)
+            TratamentoId = id;
+        }
+
+        public static int CriarNovoId(TipoBancoDeDados tipo)
+        {
+            switch (tipo)
             {
-                int idcliente = ClienteId;
-                ClienteId++;
-                return idcliente;
+                case TipoBancoDeDados.Cliente:
+                    int idcliente = ClienteId;
+                    ClienteId++;
+                    return idcliente;
+                case TipoBancoDeDados.Colaborador:
+                    int idcolaborador = ColaboradorId;
+                    ColaboradorId++;
+                    return idcolaborador;
+                case TipoBancoDeDados.Comanda:
+                    int idcomanda = ComandaId;
+                    ComandaId++;
+                    return idcomanda;
+                case TipoBancoDeDados.Tratamento:
+                    int idtratamento = TratamentoId;
+                    TratamentoId++;
+                    return idtratamento;
             }
-            else
-            if (tipoId == 2)
-            {
-                int idcolaborador = ColaboradorId;
-                ColaboradorId++;
-                return idcolaborador;
-            }
-            else
-            if
-            (tipoId == 3)
-            {
-                int idcomanda = ComandaId;
-                ComandaId++;
-                return idcomanda;
-            }
-            else
-            {
-                throw new Exception("Operação Inválida");
-            }
+            return 0;
+            //    int idtratamento = TratamentoId;
+            //    TratamentoId++;
+            //    return idtratamento;
+            //    int idtratamento = TratamentoId;
+            //    TratamentoId++;
+            //    return idtratamento;
+            //if (tipoId == 1)
+            //{
+            //    int idcliente = ClienteId;
+            //    ClienteId++;
+            //    return idcliente;
+            //}
+            //else
+            //if (tipoId == 2)
+            //{
+            //    int idcolaborador = ColaboradorId;
+            //    ColaboradorId++;
+            //    return idcolaborador;
+            //}
+            //else
+            //if
+            //(tipoId == 3)
+            //{
+            //    int idcomanda = ComandaId;
+            //    ComandaId++;
+            //    return idcomanda;
+            //}
+            //else if(tipoId == 4)
+            //{
+            //    int idtratamento = TratamentoId;
+            //    TratamentoId++;
+            //    return idtratamento;
+            //}
+            //{
+            //    throw new Exception("Operação Inválida");
+            //}
         }
     }
 }

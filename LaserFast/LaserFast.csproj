@@ -52,6 +52,7 @@
     <Compile Include="Entidades\Comanda.cs" />
     <Compile Include="Entidades\Identificavel.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
+    <Compile Include="Entidades\Tratamento.cs" />
     <Compile Include="Helpers\CriadorIds.cs" />
     <Compile Include="Helpers\TipoBancoDeDados.cs" />
     <Compile Include="Helpers\TipoTratamento.cs" />
