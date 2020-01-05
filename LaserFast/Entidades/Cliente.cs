@@ -27,7 +27,8 @@ namespace LaserFast.Entidades
         }
         public void ListarDadosCliente()
         {
-            Console.WriteLine("\nNome: " + Nome);
+            Console.WriteLine("\nIdentificador: " + Id);
+            Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Data de nascimento: " + DataNascimento);
             Console.WriteLine("Logradouro: " + Logradouro);

@@ -73,19 +73,29 @@ namespace LaserFast
                         break;
                     case 3:
                         Console.Clear();
-                        Console.Write("Cliente, digite seu número identificador: ");
-                        int numIdCliente = int.Parse(Console.ReadLine());
+                        bool check = false;
+                        int numIdCliente;
+                        do
+                        {
+                            Console.Write("Cliente, digite seu número identificador: ");
+                            numIdCliente = int.Parse(Console.ReadLine());
+                            check = BancoDeDados.BancoDeDados.VerificarExistenciaCliente(numIdCliente);
+                        } while (!check);
                         Console.Clear();
                         Console.Write("Colaborador, digite seu número identificador: ");
-                        int numIdColaborador = int.Parse(Console.ReadLine());                                                
+                        int numIdColaborador = int.Parse(Console.ReadLine());
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
-                        numIdColaborador = comanda.IdColaborador;                        
+                        numIdColaborador = comanda.IdColaborador;
                         comanda.Tratamento();
-                        BancoDeDados.BancoDeDados.AddComanda(comanda);
+                        if (comanda.TratamentoConfirmado == true)
+                        {
+                            BancoDeDados.BancoDeDados.AddComanda(comanda);
+                        }
+                        Console.Clear();
                         break;
                     case 4:
-                        foreach(Cliente item in BancoDeDados.BancoDeDados.ListaClientes)
+                        foreach (Cliente item in BancoDeDados.BancoDeDados.ListaClientes)
                         {
                             item.ListarDadosCliente();
                         }
@@ -97,7 +107,7 @@ namespace LaserFast
                         }
                         break;
                     case 6:
-                        foreach (Comanda item in BancoDeDados.BancoDeDados.ListarComandas)
+                        foreach (Comanda item in BancoDeDados.BancoDeDados.ListaComandas)
                         {
                             item.ListarDadosComanda();
                         }
@@ -107,7 +117,7 @@ namespace LaserFast
                         Console.WriteLine("\nDigite o nome do cliente: ");
                         string nomeClienteBusca = Console.ReadLine().ToLower();
                         Cliente clienteExibir = BancoDeDados.BancoDeDados.ListaClientes.FirstOrDefault(x => x.Nome.ToLower().Contains(nomeClienteBusca));
-                        if(clienteExibir != null)
+                        if (clienteExibir != null)
                         {
                             clienteExibir.ListarDadosCliente();
                         }
@@ -134,7 +144,7 @@ namespace LaserFast
                         Console.Clear();
                         Console.WriteLine("\nDigite o numero da comanda: ");
                         int idComandaBusca = int.Parse(Console.ReadLine());
-                        Comanda comandaExibir = BancoDeDados.BancoDeDados.ListarComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
+                        Comanda comandaExibir = BancoDeDados.BancoDeDados.ListaComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
                         if (comandaExibir != null)
                         {
                             comandaExibir.ListarDadosComanda();
