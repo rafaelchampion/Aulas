@@ -27,6 +27,7 @@ namespace LaserFast.Entidades
             this.IdComanda = CriadorIds.CriarNovoId(3);
             this.IdCliente = IdCliente;
             this.IdColaborador = IdColaborador;
+            this.DataConsulta = DateTime.Now;
         }
 
         public Comanda()

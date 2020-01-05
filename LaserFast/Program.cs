@@ -72,6 +72,7 @@ namespace LaserFast
                         Console.ReadLine();
                         break;
                     case 3:
+                        Console.Clear();
                         Console.Write("Cliente, digite seu número identificador: ");
                         int numIdCliente = int.Parse(Console.ReadLine());
                         Console.Clear();
@@ -79,10 +80,9 @@ namespace LaserFast
                         int numIdColaborador = int.Parse(Console.ReadLine());                                                
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
-                        numIdColaborador = comanda.IdColaborador;
-                        BancoDeDados.BancoDeDados.AddComanda(comanda);
-                        Console.Clear();
+                        numIdColaborador = comanda.IdColaborador;                        
                         comanda.Tratamento();
+                        BancoDeDados.BancoDeDados.AddComanda(comanda);
                         break;
                     case 4:
                         foreach(Cliente item in BancoDeDados.BancoDeDados.ListaClientes)

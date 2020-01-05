@@ -24,7 +24,6 @@ namespace LaserFast.BancoDeDados
             ListaColaboradores = new List<Colaborador>();
             ListarComandas = new List<Comanda>();
         }
-
         public static void AddCliente (Cliente cliente)
         {
             ListaClientes.Add(cliente);
@@ -39,7 +38,6 @@ namespace LaserFast.BancoDeDados
         {
             ListarComandas.Add(comanda);
             SalvarArquivoJson(TipoBancoDeDados.Comanda);
-
         }
 
         private static void SalvarArquivoJson(TipoBancoDeDados tipo)
@@ -77,7 +75,7 @@ namespace LaserFast.BancoDeDados
                 int maxId = ListaClientes.Max(x => x.Id) + 1;
                 CriadorIds.InicializarClienteId(maxId);
             }
-            if (File.Exists($"{DriveArquivoJson}{CaminhoArquivoJson}ListaColaboradores"))
+            if (File.Exists($"{DriveArquivoJson}{CaminhoArquivoJson}ListaColaboradores.json"))
             {
                 StreamReader leitordeArquivoColaboradores = new StreamReader($"{DriveArquivoJson}{CaminhoArquivoJson}ListaColaboradores.json");
                 string colaboradores = leitordeArquivoColaboradores.ReadToEnd();
@@ -86,14 +84,14 @@ namespace LaserFast.BancoDeDados
                 int maxId = ListaColaboradores.Max(x => x.Id) + 1;
                 CriadorIds.InicializarColaboradorId(maxId);
             }
-            if (File.Exists($"{DriveArquivoJson}{CaminhoArquivoJson}ListarComandas"))
+            if (File.Exists($"{DriveArquivoJson}{CaminhoArquivoJson}ListaComandas.json"))
             {
-                StreamReader leitordeArquivoComandas = new StreamReader($"{DriveArquivoJson}{CaminhoArquivoJson}ListarComandas.json");
+                StreamReader leitordeArquivoComandas = new StreamReader($"{DriveArquivoJson}{CaminhoArquivoJson}ListaComandas.json");
                 string comandas = leitordeArquivoComandas.ReadToEnd();
                 leitordeArquivoComandas.Dispose();
                 ListarComandas = JsonConvert.DeserializeObject<List<Comanda>>(comandas);
-                int maxId = ListaColaboradores.Max(x => x.Id) + 1;
-                CriadorIds.InicializarColaboradorId(maxId);
+                int maxId = ListarComandas.Max(x => x.Id) + 1;
+                CriadorIds.InicializarComandaId(maxId);
             }
         }
     }
