@@ -114,7 +114,7 @@ namespace LaserFast.Entidades
         }
         public void ListarDadosComanda()
         {
-            Console.WriteLine("Id Comanda: " + Id);
+            Console.WriteLine("\nId Comanda: " + Id);
             Console.WriteLine("Id Cliente: " + IdCliente);
             Console.WriteLine("Id Colaborador: " + IdColaborador);
             Console.WriteLine(ItemComanda + "\n");

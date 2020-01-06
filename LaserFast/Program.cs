@@ -13,26 +13,30 @@ namespace LaserFast
         static void Main(string[] args)
         {
             BancoDeDados.BancoDeDados.CarregarArquivosJson();
+            Console.WriteLine("\nSeja bem vindo a LaserFast");
             bool execProgram = true;
             while (execProgram)
             {
-                Console.WriteLine("Seja bem vindo a LaserFast\n");
-                Console.WriteLine("Escolha uma opção abaixo.\n");
+                Console.WriteLine("\nEscolha uma opção abaixo.\n");
                 Console.WriteLine("1. Cadastrar cliente");
                 Console.WriteLine("2. Cadastrar colaborador");
                 Console.WriteLine("3. Cadastrar comanda");
+                Console.WriteLine("4. Cadastrar Tratamentos");
 
-                Console.WriteLine("\n4. Listar Clientes");
-                Console.WriteLine("5. Listar Colaboradores");
-                Console.WriteLine("6. Listar Comandas");
+                Console.WriteLine("\n5. Listar Clientes");
+                Console.WriteLine("6. Listar Colaboradores");
+                Console.WriteLine("7. Listar Comandas");
+                Console.WriteLine("8. Listar Tratamentos");
 
-                Console.WriteLine("\n7. Buscar Clientes");
-                Console.WriteLine("8. Buscar Colaboradores");
-                Console.WriteLine("9. Buscar Comandas");
+                Console.WriteLine("\n9. Buscar Clientes");
+                Console.WriteLine("10. Buscar Colaboradores");
+                Console.WriteLine("11. Buscar Comandas");
 
-                Console.WriteLine("\n10. Quantidade de clientes");
-                Console.WriteLine("\n11. Cadastrar Tratamentos");
-                Console.WriteLine("\n12. Sair");
+                Console.WriteLine("\n12. Quantidade de clientes");
+
+                Console.WriteLine("13. Sair");
+
+                Console.Write("\nDigite sua opção: ");
                 int key = int.Parse(Console.ReadLine());
                 switch (key)
                 {
@@ -54,6 +58,7 @@ namespace LaserFast
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
                         break;
+
                     case 2:
                         Console.Clear();
                         Console.WriteLine("\nDigite o nome do Colaborador");
@@ -72,12 +77,13 @@ namespace LaserFast
                         Console.WriteLine("Seu número indentificador é: \n" + colaborador.Id);
                         Console.ReadLine();
                         break;
+
                     case 3:
                         Console.Clear();
                         bool check = false;
                         int numIdCliente;
                         int numIdColaborador;
-                        Console.Write("Cliente, digite seu número identificador: ");                        
+                        Console.Write("Cliente, digite seu número identificador: ");
                         do
                         {
                             numIdCliente = int.Parse(Console.ReadLine());
@@ -111,25 +117,47 @@ namespace LaserFast
                         }
                         Console.Clear();
                         break;
+
                     case 4:
+                        Console.Clear();
+                        Console.WriteLine("Digite o nome do tratamento que deseja cadastrar");
+                        string nomeTratamento = Console.ReadLine();
+                        Console.WriteLine("Digite o valor do tratamento digitado previamente");
+                        decimal valorTratamento = decimal.Parse(Console.ReadLine());
+                        Tratamento tratamento = new Tratamento(nomeTratamento, valorTratamento);
+                        BancoDeDados.BancoDeDados.AddTratamento(tratamento);
+                        break;
+
+                    case 5:
                         foreach (Cliente item in BancoDeDados.BancoDeDados.ListaClientes)
                         {
                             item.ListarDadosCliente();
                         }
                         break;
-                    case 5:
+
+                    case 6:
                         foreach (Colaborador item in BancoDeDados.BancoDeDados.ListaColaboradores)
                         {
                             item.ListarDadosColaborador();
                         }
                         break;
-                    case 6:
+
+                    case 7:
                         foreach (Comanda item in BancoDeDados.BancoDeDados.ListaComandas)
                         {
                             item.ListarDadosComanda();
                         }
                         break;
-                    case 7:
+
+                    case 8:
+                        Console.Clear();
+                        foreach (Tratamento item in BancoDeDados.BancoDeDados.ListaTratamentos)
+                        {                            
+                            item.ListarDadosTratamentos();
+                        }
+                        break;
+
+                    case 9:
                         Console.Clear();
                         Console.WriteLine("\nDigite o nome do cliente: ");
                         string nomeClienteBusca = Console.ReadLine().ToLower();
@@ -143,7 +171,8 @@ namespace LaserFast
                             Console.WriteLine("\nCliente Não Encontrado.");
                         }
                         break;
-                    case 8:
+
+                    case 10:
                         Console.Clear();
                         Console.WriteLine("\nDigite o nome do colaborador: ");
                         string nomeColaboradorBusca = Console.ReadLine().ToLower();
@@ -157,7 +186,8 @@ namespace LaserFast
                             Console.WriteLine("\nColaborador Não Encontrado.");
                         }
                         break;
-                    case 9:
+
+                    case 11:
                         Console.Clear();
                         Console.WriteLine("\nDigite o numero da comanda: ");
                         int idComandaBusca = int.Parse(Console.ReadLine());
@@ -171,19 +201,12 @@ namespace LaserFast
                             Console.WriteLine("\nComanda Não Encontrada.");
                         }
                         break;
-                    case 10:
+
+                    case 12:
                         Console.WriteLine("Existem " + BancoDeDados.BancoDeDados.ListaClientes.Count() + " Clientes cadastrados.");
                         break;
-                    case 11:
-                        Console.Clear();
-                        Console.WriteLine("Digite o nome do tratamento que deseja cadastrar");
-                        string nomeTratamento = Console.ReadLine();
-                        Console.WriteLine("Digite o valor do tratamento digitado previamente");
-                        decimal valorTratamento = decimal.Parse(Console.ReadLine());
-                        Tratamento tratamento = new Tratamento(nomeTratamento, valorTratamento);
-                        BancoDeDados.BancoDeDados.AddTratamento(tratamento);
-                        break;
-                    case 12:
+
+                    case 13:
                         Console.WriteLine("\nVolte sempre.");
                         execProgram = false;
                         Console.ReadLine();

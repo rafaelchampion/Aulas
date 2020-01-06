@@ -32,7 +32,7 @@ namespace LaserFast.Entidades
             Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Data de nascimento: " + DataNascimento);
             Console.WriteLine("Logradouro: " + Logradouro);
-            Console.WriteLine("Cidade: " + Cidade);
+            Console.WriteLine("Cidade: \n" + Cidade);
         }
     }
 }
