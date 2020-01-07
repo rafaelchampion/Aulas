@@ -49,45 +49,78 @@ namespace LaserFast.Entidades
         public void Tratamento()
         {
             Console.WriteLine("Escolha um tratamento abaixo\n");
-            Console.WriteLine("1. " + TipoTratamento.Pernas);
-            Console.WriteLine("2. " + TipoTratamento.Costas);
-            Console.WriteLine("3. " + TipoTratamento.Peito);
-            Console.WriteLine("4. " + TipoTratamento.Virilha);
-            int key = int.Parse(Console.ReadLine());
-            if (key == 1)
+            foreach (Tratamento item in BancoDeDados.BancoDeDados.ListaTratamentos)
             {
-                ItemComanda = ("Tratamento: " + TipoTratamento.Pernas + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Pernas));
-                TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Pernas);
+                item.ListarDadosTratamentos();
             }
-            else if (key == 2)
+            //Console.WriteLine("1. " + TipoTratamento.Pernas);
+            //Console.WriteLine("2. " + TipoTratamento.Costas);
+            //Console.WriteLine("3. " + TipoTratamento.Peito);
+            //Console.WriteLine("4. " + TipoTratamento.Virilha);
+
+            Console.Write("Digite sua opção: ");
+            int ItemComanda = int.Parse(Console.ReadLine());
+            Tratamento tratamento =  BancoDeDados.BancoDeDados.ListaTratamentos.FirstOrDefault(x => x.Id.Equals(ItemComanda));
+
+
+
+
+            if (ItemComanda == CriadorIds.TratamentoId)
             {
-                ItemComanda = ("Tratamento: " + TipoTratamento.Costas + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Costas));
-                TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Costas);
-            }
-            else if (key == 3)
-            {
-                ItemComanda = ("Tratamento: " + TipoTratamento.Peito + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Peito));
-                TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Peito);
-            }
-            else if (key == 4)
-            {
-                ItemComanda = ("Tratamento: " + TipoTratamento.Virilha + "Valor: " + ValorTratamentos(TipoTratamento.Virilha));
-                TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Virilha);
+                Console.Write("confirmado com sucesso: ");
+                tratamento.ListarDadosTratamentos();
+                ListarDadosTratamentos();
             }
             else
             {
-                Console.Clear();
-                Console.WriteLine("\nOpção Invalida");
-                Console.WriteLine("\nVocê foi redirecionado ao menu principal");
+                Console.WriteLine("\nInválido.");
             }
+
+            //comandaExibir = BancoDeDados.BancoDeDados.ListaComandas.FirstOrDefault(x => x.Id.Equals(idComandaBusca));
+
+
+
+
+
+
+
+
+
+            //if (key == 1)
+            //{
+            //    ItemComanda = ("Tratamento: " + TipoTratamento.Pernas + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Pernas));
+            //    TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Pernas);
+            //}
+            //else if (key == 2)
+            //{
+            //    ItemComanda = ("Tratamento: " + TipoTratamento.Costas + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Costas));
+            //    TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Costas);
+            //}
+            //else if (key == 3)
+            //{
+            //    ItemComanda = ("Tratamento: " + TipoTratamento.Peito + "\n" + "Valor: " + ValorTratamentos(TipoTratamento.Peito));
+            //    TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Peito);
+            //}
+            //else if (key == 4)
+            //{
+            //    ItemComanda = ("Tratamento: " + TipoTratamento.Virilha + "Valor: " + ValorTratamentos(TipoTratamento.Virilha));
+            //    TratamentoConfirmado = ConfirmarTratamento(TipoTratamento.Virilha);
+            //}
+            //else
+            //{
+            //    Console.Clear();
+            //    Console.WriteLine("\nOpção Invalida");
+            //    Console.WriteLine("\nVocê foi redirecionado ao menu principal");
+            //}
         }
-        private bool ConfirmarTratamento(TipoTratamento tipo)
+        private bool ConfirmarTratamento(TipoTratamento tipo) // como faço pra atribuir esse metodo na propriedade TratamentoConfirmado??? pq eu chamo essa propriedade no program
         {
             Console.Clear();
             Console.WriteLine("\nTratamento escolhido: " + tipo);
             Console.WriteLine("R$" + ValorTratamentos(tipo));
             Console.WriteLine("\nDeseja confimar? y/n");
             string confirmarTratamento = Console.ReadLine();
+            confirmarTratamento = TratamentoConfirmado; // n tem como eu fazer isso pq um é string o outro nao
             if (confirmarTratamento.ToLower() == "y")
             {
                 Console.Clear();

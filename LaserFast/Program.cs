@@ -110,12 +110,12 @@ namespace LaserFast
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
-                        comanda.Tratamento();
+                        comanda.Tratamento();                        
                         if (comanda.TratamentoConfirmado == true)
                         {
                             BancoDeDados.BancoDeDados.AddComanda(comanda);
                         }
-                        Console.Clear();
+                        //Console.Clear();
                         break;
 
                     case 4:

@@ -23,8 +23,8 @@ namespace LaserFast.Entidades
         }
         public void ListarDadosTratamentos()
         {
-            Console.WriteLine("\nTratamento: " + Nome);
-            Console.WriteLine("Valor: \n" + Valor);
+            Console.WriteLine(Id + ". " + "Tratamento: " + Nome);
+            Console.WriteLine("Valor: " + Valor + "\n");
         }
     }
 
