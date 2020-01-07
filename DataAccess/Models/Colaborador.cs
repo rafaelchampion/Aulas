@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class Colaborador : Base
+    public class Colaborador : Pessoa
     {
-        [ForeignKey("Pessoa")]
-        public int IdPessoa { get; set; }
-
-        public virtual Pessoa Pessoa { get; set; }
         public virtual IEnumerable<Comanda> Comandas { get; set; }
     }
 }
