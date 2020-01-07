@@ -69,7 +69,6 @@ namespace LaserFast.Entidades
             {
                 Console.Write("confirmado com sucesso: ");
                 tratamento.ListarDadosTratamentos();
-                ListarDadosTratamentos();
             }
             else
             {
@@ -120,7 +119,7 @@ namespace LaserFast.Entidades
             Console.WriteLine("R$" + ValorTratamentos(tipo));
             Console.WriteLine("\nDeseja confimar? y/n");
             string confirmarTratamento = Console.ReadLine();
-            confirmarTratamento = TratamentoConfirmado; // n tem como eu fazer isso pq um é string o outro nao
+           // confirmarTratamento = TratamentoConfirmado; // n tem como eu fazer isso pq um é string o outro nao
             if (confirmarTratamento.ToLower() == "y")
             {
                 Console.Clear();
