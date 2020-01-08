@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class Cliente : Pessoa
+    public class Cliente : Base
     {
+        [ForeignKey("Pessoa")]
+        public int IdPessoa { get; set; }
+
+        public virtual Pessoa Pessoa { get; set; }
         public virtual IEnumerable<Comanda> Comandas { get; set; }
     }
 }

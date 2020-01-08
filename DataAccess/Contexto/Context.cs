@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace DataAccess.Contexto
 {
@@ -13,6 +14,11 @@ namespace DataAccess.Contexto
         public Context() : base(DadosConexao.RetornarStringConexao())
         {
 
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
         public virtual DbSet<Cidade> Cidade { get; set; }
