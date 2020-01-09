@@ -23,7 +23,7 @@ namespace DataAccess.Models
         public DateTime DataNascimento { get; set; }
 
         public virtual Cidade Cidade { get; set; }
-        public virtual Cliente Cliente { get; set; }
-        public virtual Colaborador Colaborador { get; set; }
+        public virtual List<Cliente> Cliente { get; set; }
+        public virtual List<Colaborador> Colaborador { get; set; }
     }
 }

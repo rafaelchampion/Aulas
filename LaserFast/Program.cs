@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LaserFast.Entidades;
 using LaserFast.BancoDeDados;
+using DataAccess.Contexto;
+using System.Data.Entity;
 
 namespace LaserFast
 {

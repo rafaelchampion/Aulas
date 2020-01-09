@@ -8,10 +8,10 @@ namespace DataAccess.Contexto
 {
     internal static class DadosConexao
     {
-        public static string Servidor;
-        public static string NomeBanco;
-        public static string Usuario;
-        public static string Senha;
+        public const string Servidor = "estudosolano.mysql.dbaas.com.br";
+        public const string NomeBanco = "estudosolano";
+        public const string Usuario = "estudosolano";
+        public const string Senha = "BUrW68Zd";
         public static string RetornarStringConexao()
         {
             return $"server={Servidor};user id={Usuario};password={Senha};database={NomeBanco};persistsecurityinfo=True";
