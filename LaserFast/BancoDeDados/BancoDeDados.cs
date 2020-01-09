@@ -25,6 +25,7 @@ namespace LaserFast.BancoDeDados
             ListaColaboradores = new List<Colaborador>();
             ListaComandas = new List<Comanda>();
             ListaTratamentos = new List<Tratamento>();
+
         }
         public static void AddCliente (Cliente cliente)
         {
