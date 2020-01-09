@@ -13,11 +13,11 @@ namespace LaserFast
         static void Main(string[] args)
         {
             BancoDeDados.BancoDeDados.CarregarArquivosJson();
-            Console.WriteLine("\nSeja bem vindo a LaserFast");
+            Console.WriteLine("Seja bem vindo a LaserFast");
             bool execProgram = true;
             while (execProgram)
             {
-                Console.WriteLine("\nEscolha uma opção abaixo.\n");
+                Console.WriteLine("Escolha uma opção abaixo.\n");
                 Console.WriteLine("1. Cadastrar cliente");
                 Console.WriteLine("2. Cadastrar colaborador");
                 Console.WriteLine("3. Cadastrar comanda");
@@ -38,10 +38,10 @@ namespace LaserFast
 
                 Console.Write("\nDigite sua opção: ");
                 int key = int.Parse(Console.ReadLine());
+                Console.Clear();
                 switch (key)
                 {
                     case 1:
-                        Console.Clear();
                         Console.WriteLine("Digite o nome do cliente");
                         string nomeCliente = Console.ReadLine();
                         Console.WriteLine("\nDigite o CPF do cliente");
@@ -57,11 +57,12 @@ namespace LaserFast
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case 2:
-                        Console.Clear();
-                        Console.WriteLine("\nDigite o nome do Colaborador");
+                        
+                        Console.WriteLine("Digite o nome do Colaborador");
                         string nomeColaborador = Console.ReadLine();
                         Console.WriteLine("\nDigite o CPF do Colaborador");
                         string cpfColaborador = Console.ReadLine();
@@ -76,6 +77,7 @@ namespace LaserFast
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + colaborador.Id);
                         Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case 3:
@@ -95,29 +97,51 @@ namespace LaserFast
                                 Console.Write("Digite novamente: ");
                             }
                         } while (!check);
+                        Console.Clear();
                         Console.Write("Colaborador, digite seu número identificador: ");
                         do
-                        {
+                        {                            
                             numIdColaborador = int.Parse(Console.ReadLine());
                             check = BancoDeDados.BancoDeDados.VerificarExistenciaColaborador(numIdColaborador);
                             if (check == false)
                             {
+                                Console.WriteLine("");
                                 Console.Clear();
-                                Console.WriteLine("Identificador errado");
-                                Console.Write("Digite novamente: ");
-                            }
+                                Console.Write("Identificador errado\nDigite novamente: ");
+                            }                            
                         } while (!check);
+                        Console.Clear();
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
-                        comanda.Tratamento();                        
-                        if (comanda.TratamentoConfirmado == true)
+                        comanda.Tratamento();
+                        if (comanda.ListaTratamentosComanda.Count > 0)// && comanda.ListarDadosComanda.Equals(0))
                         {
-                            BancoDeDados.BancoDeDados.AddComanda(comanda);
+                            Console.WriteLine("Deseja confirmar a aquisição do tratamento? y/n");
+                            string confirmarTratamento = Console.ReadLine();
+                            if (confirmarTratamento == "y" && comanda.ListaTratamentosComanda != null)
+                            {
+                                Console.Clear();
+                                BancoDeDados.BancoDeDados.AddComanda(comanda);
+                                Console.WriteLine("\nTratamento confirmado com sucesso.");
+                                Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
+                                Console.ReadLine();
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nTratamento não confirmado.");
+                                Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
+                                Console.ReadLine();
+                            }
+                         Console.Clear();
                         }
-                        //Console.Clear();
+                        else
+                        {
+                            Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
+                            Console.ReadLine();
+                        }
+                        Console.Clear();
                         break;
-
                     case 4:
                         Console.Clear();
                         Console.WriteLine("Digite o nome do tratamento que deseja cadastrar");
@@ -126,6 +150,7 @@ namespace LaserFast
                         decimal valorTratamento = decimal.Parse(Console.ReadLine());
                         Tratamento tratamento = new Tratamento(nomeTratamento, valorTratamento);
                         BancoDeDados.BancoDeDados.AddTratamento(tratamento);
+                        Console.Clear();
                         break;
 
                     case 5:
@@ -152,7 +177,7 @@ namespace LaserFast
                     case 8:
                         Console.Clear();
                         foreach (Tratamento item in BancoDeDados.BancoDeDados.ListaTratamentos)
-                        {                            
+                        {
                             item.ListarDadosTratamentos();
                         }
                         break;
