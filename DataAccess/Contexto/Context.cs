@@ -13,7 +13,7 @@ namespace DataAccess.Contexto
     {
         public Context() : base(DadosConexao.RetornarStringConexao())
         {
-
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
