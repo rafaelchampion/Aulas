@@ -3,20 +3,10 @@ namespace DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Inicial : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
-            CreateTable(
-                "dbo.Cidade",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(unicode: false),
-                        DataInsert = c.DateTime(nullable: false, precision: 0),
-                    })
-                .PrimaryKey(t => t.Id);
-            
             CreateTable(
                 "dbo.Cliente",
                 c => new
@@ -42,13 +32,10 @@ namespace DataAccess.Migrations
                         Numero = c.Int(nullable: false),
                         Complemento = c.String(unicode: false),
                         Bairro = c.String(unicode: false),
-                        IdCidade = c.Int(nullable: false),
                         DataNascimento = c.DateTime(nullable: false, precision: 0),
                         DataInsert = c.DateTime(nullable: false, precision: 0),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cidade", t => t.IdCidade, cascadeDelete: true)
-                .Index(t => t.IdCidade);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Colaborador",
@@ -113,13 +100,11 @@ namespace DataAccess.Migrations
             DropForeignKey("dbo.Comanda", "IdCliente", "dbo.Cliente");
             DropForeignKey("dbo.Cliente", "IdPessoa", "dbo.Pessoa");
             DropForeignKey("dbo.Colaborador", "IdPessoa", "dbo.Pessoa");
-            DropForeignKey("dbo.Pessoa", "IdCidade", "dbo.Cidade");
             DropIndex("dbo.ItemComanda", new[] { "IdTratamento" });
             DropIndex("dbo.ItemComanda", new[] { "IdComanda" });
             DropIndex("dbo.Comanda", new[] { "IdColaborador" });
             DropIndex("dbo.Comanda", new[] { "IdCliente" });
             DropIndex("dbo.Colaborador", new[] { "IdPessoa" });
-            DropIndex("dbo.Pessoa", new[] { "IdCidade" });
             DropIndex("dbo.Cliente", new[] { "IdPessoa" });
             DropTable("dbo.Tratamento");
             DropTable("dbo.ItemComanda");
@@ -127,7 +112,6 @@ namespace DataAccess.Migrations
             DropTable("dbo.Colaborador");
             DropTable("dbo.Pessoa");
             DropTable("dbo.Cliente");
-            DropTable("dbo.Cidade");
         }
     }
 }

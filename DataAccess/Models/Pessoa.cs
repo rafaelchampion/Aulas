@@ -18,11 +18,7 @@ namespace DataAccess.Models
         public int Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
-        [ForeignKey("Cidade")]
-        public int IdCidade { get; set; }
         public DateTime DataNascimento { get; set; }
-
-        public virtual Cidade Cidade { get; set; }
         public virtual List<Cliente> Cliente { get; set; }
         public virtual List<Colaborador> Colaborador { get; set; }
     }

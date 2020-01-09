@@ -21,8 +21,6 @@ namespace DataAccess.Contexto
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        public virtual DbSet<Cidade> Cidade { get; set; }
-
         public virtual DbSet<Cliente> Cliente { get; set; }
 
         public virtual DbSet<Colaborador> Colaborador { get; set; }

@@ -75,13 +75,12 @@
   <ItemGroup>
     <Compile Include="Contexto\Context.cs" />
     <Compile Include="Contexto\DadosConexao.cs" />
-    <Compile Include="Migrations\202001081511131_Inicial.cs" />
-    <Compile Include="Migrations\202001081511131_Inicial.Designer.cs">
-      <DependentUpon>202001081511131_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\202001091825321_Initial.cs" />
+    <Compile Include="Migrations\202001091825321_Initial.Designer.cs">
+      <DependentUpon>202001091825321_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base.cs" />
-    <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Colaborador.cs" />
     <Compile Include="Models\Comanda.cs" />
@@ -95,8 +94,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001081511131_Inicial.resx">
-      <DependentUpon>202001081511131_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001091825321_Initial.resx">
+      <DependentUpon>202001091825321_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
