@@ -52,10 +52,24 @@ namespace LaserFast
                         DateTime datanascimentoCliente = DateTime.Parse(Console.ReadLine());
                         Console.WriteLine("\nDigite o Logradouro do cliente");
                         string logradouroCliente = Console.ReadLine();
-                        Console.WriteLine("\nDigite a cidade do cliente");
-                        string cidadeCliente = Console.ReadLine();
-                        Cliente cliente = new Cliente(nomeCliente, cpfCliente, datanascimentoCliente, logradouroCliente, cidadeCliente);
-                        BancoDeDados.BancoDeDados.AddCliente(cliente);
+                        //Cliente cliente = new Cliente(nomeCliente, cpfCliente, datanascimentoCliente, logradouroCliente, cidadeCliente);
+                        //BancoDeDados.BancoDeDados.AddCliente(cliente);
+                        DataAccess.Models.Pessoa pessoa = new DataAccess.Models.Pessoa()
+                        {
+                            Nome = nomeCliente,
+                            CPF = cpfCliente,
+                            DataNascimento = datanascimentoCliente,
+                            Logradouro = logradouroCliente,
+                        };
+                        DataAccess.Models.Cliente cliente = new DataAccess.Models.Cliente()
+                        {
+                            Pessoa = pessoa
+                        };
+                        using (var db = new Context())
+                        {
+                            db.Cliente.Add(cliente);
+                            db.SaveChanges();
+                        }
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
