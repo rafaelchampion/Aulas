@@ -27,5 +27,4 @@ namespace LaserFast.Entidades
             Console.WriteLine("Valor: " + Valor + "\n");
         }
     }
-
 }

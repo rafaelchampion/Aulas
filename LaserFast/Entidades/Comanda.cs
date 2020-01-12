@@ -33,7 +33,7 @@ namespace LaserFast.Entidades
                 {
                     item.ListarDadosTratamentos();
                 }
-                Console.WriteLine("0. Sair\n");
+                Console.WriteLine("0. Voltar ao menu principal\n");
                 Console.Write("Digite sua opção: ");
                 int ItemComanda = int.Parse(Console.ReadLine());
                 Tratamento tratamento = BancoDeDados.BancoDeDados.ListaTratamentos.FirstOrDefault(x => x.Id.Equals(ItemComanda));

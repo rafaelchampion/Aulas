@@ -77,7 +77,7 @@ namespace LaserFast
                         break;
 
                     case 2:
-                        
+
                         Console.WriteLine("Digite o nome do Colaborador");
                         string nomeColaborador = Console.ReadLine();
                         Console.WriteLine("\nDigite o CPF do Colaborador");
@@ -98,6 +98,7 @@ namespace LaserFast
 
                     case 3:
                         Console.Clear();
+
                         bool check = false;
                         int numIdCliente;
                         int numIdColaborador;
@@ -116,7 +117,7 @@ namespace LaserFast
                         Console.Clear();
                         Console.Write("Colaborador, digite seu número identificador: ");
                         do
-                        {                            
+                        {
                             numIdColaborador = int.Parse(Console.ReadLine());
                             check = BancoDeDados.BancoDeDados.VerificarExistenciaColaborador(numIdColaborador);
                             if (check == false)
@@ -124,40 +125,47 @@ namespace LaserFast
                                 Console.WriteLine("");
                                 Console.Clear();
                                 Console.Write("Identificador errado\nDigite novamente: ");
-                            }                            
+                            }
                         } while (!check);
                         Console.Clear();
+                        bool execComanda = true;
                         Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
-                        comanda.Tratamento();
-                        if (comanda.ListaTratamentosComanda.Count > 0)// && comanda.ListarDadosComanda.Equals(0))
+
+
+                        do
                         {
-                            Console.WriteLine("Deseja confirmar a aquisição do tratamento? y/n");
-                            string confirmarTratamento = Console.ReadLine();
-                            if (confirmarTratamento == "y" && comanda.ListaTratamentosComanda != null)
+                            comanda.Tratamento();
+                            if (comanda.ListaTratamentosComanda.Count > 0)// && comanda.ListarDadosComanda.Equals(0))
                             {
-                                Console.Clear();
-                                BancoDeDados.BancoDeDados.AddComanda(comanda);
-                                Console.WriteLine("\nTratamento confirmado com sucesso.");
-                                Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
-                                Console.ReadLine();
+                                Console.WriteLine("Deseja confirmar a aquisição do tratamento? y/n");
+                                string confirmarTratamento = Console.ReadLine().ToLower();
+                                if (confirmarTratamento == "y" && comanda.ListaTratamentosComanda != null)
+                                {
+                                    Console.Clear();
+                                    BancoDeDados.BancoDeDados.AddComanda(comanda);
+                                    Console.WriteLine("Tratamento confirmado com sucesso.\n");
+                                    Console.WriteLine("Deseja escolher outro tratamento?\n");
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Tratamento não confirmado.\n");
+                                    Console.WriteLine("Deseja escolher outro tratamento?\n");
+                                }                                
                             }
                             else
                             {
-                                Console.WriteLine("\nTratamento não confirmado.");
-                                Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
-                                Console.ReadLine();
+                                execComanda = false;
                             }
-                         Console.Clear();
-                        }
-                        else
-                        {
-                            Console.WriteLine("\nPressione uma tecla para retornar ao menu principal");
-                            Console.ReadLine();
-                        }
-                        Console.Clear();
+                        } while (execComanda == true);
                         break;
+
+
+
+
+
                     case 4:
                         Console.Clear();
                         Console.WriteLine("Digite o nome do tratamento que deseja cadastrar");
