@@ -52,24 +52,24 @@ namespace LaserFast
                         DateTime datanascimentoCliente = DateTime.Parse(Console.ReadLine());
                         Console.WriteLine("\nDigite o Logradouro do cliente");
                         string logradouroCliente = Console.ReadLine();
-                        //Cliente cliente = new Cliente(nomeCliente, cpfCliente, datanascimentoCliente, logradouroCliente, cidadeCliente);
-                        //BancoDeDados.BancoDeDados.AddCliente(cliente);
-                        DataAccess.Models.Pessoa pessoa = new DataAccess.Models.Pessoa()
-                        {
-                            Nome = nomeCliente,
-                            CPF = cpfCliente,
-                            DataNascimento = datanascimentoCliente,
-                            Logradouro = logradouroCliente,
-                        };
-                        DataAccess.Models.Cliente cliente = new DataAccess.Models.Cliente()
-                        {
-                            Pessoa = pessoa
-                        };
-                        using (var db = new Context())
-                        {
-                            db.Cliente.Add(cliente);
-                            db.SaveChanges();
-                        }
+                        Cliente cliente = new Cliente(nomeCliente, cpfCliente, datanascimentoCliente, logradouroCliente, "Guapiaçu");
+                        BancoDeDados.BancoDeDados.AddCliente(cliente);
+                        //DataAccess.Models.Pessoa pessoa = new DataAccess.Models.Pessoa()
+                        //{
+                        //    Nome = nomeCliente,
+                        //    CPF = cpfCliente,
+                        //    DataNascimento = datanascimentoCliente,
+                        //    Logradouro = logradouroCliente,
+                        //};
+                        //DataAccess.Models.Cliente cliente = new DataAccess.Models.Cliente()
+                        //{
+                        //    Pessoa = pessoa
+                        //};
+                        //using (var db = new Context())
+                        //{
+                        //    db.Cliente.Add(cliente);
+                        //    db.SaveChanges();
+                        //}
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
@@ -129,37 +129,29 @@ namespace LaserFast
                         } while (!check);
                         Console.Clear();
                         bool execComanda = true;
-                        Comanda comanda = new Comanda(numIdCliente, numIdColaborador);
+                        Comanda comanda = new Comanda(numIdCliente, numIdColaborador); // Criar instância da classe comanda
                         numIdCliente = comanda.IdCliente;
                         numIdColaborador = comanda.IdColaborador;
 
-
-                        do
+                        comanda.Tratamento(); // Chamando o método tratamento
+                        if (comanda.ListaTratamentosComanda.Count > 0)// && comanda.ListarDadosComanda.Equals(0))
                         {
-                            comanda.Tratamento();
-                            if (comanda.ListaTratamentosComanda.Count > 0)// && comanda.ListarDadosComanda.Equals(0))
+                            Console.WriteLine("Deseja confirmar a aquisição do tratamento? y/n");
+                            string confirmarTratamento = Console.ReadLine().ToLower();
+                            if (confirmarTratamento == "y" && comanda.ListaTratamentosComanda != null)
                             {
-                                Console.WriteLine("Deseja confirmar a aquisição do tratamento? y/n");
-                                string confirmarTratamento = Console.ReadLine().ToLower();
-                                if (confirmarTratamento == "y" && comanda.ListaTratamentosComanda != null)
-                                {
-                                    Console.Clear();
-                                    BancoDeDados.BancoDeDados.AddComanda(comanda);
-                                    Console.WriteLine("Tratamento confirmado com sucesso.\n");
-                                    Console.WriteLine("Deseja escolher outro tratamento?\n");
-                                }
-                                else
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine("Tratamento não confirmado.\n");
-                                    Console.WriteLine("Deseja escolher outro tratamento?\n");
-                                }                                
+                                Console.Clear();
+                                BancoDeDados.BancoDeDados.AddComanda(comanda);
+                                Console.WriteLine("Tratamento confirmado com sucesso.\n");
+                                Console.WriteLine("Deseja escolher outro tratamento?\n");
                             }
                             else
                             {
-                                execComanda = false;
+                                Console.Clear();
+                                Console.WriteLine("Tratamento não confirmado.\n");
+                                Console.WriteLine("Deseja escolher outro tratamento?\n");
                             }
-                        } while (execComanda == true);
+                        }
                         break;
 
 
