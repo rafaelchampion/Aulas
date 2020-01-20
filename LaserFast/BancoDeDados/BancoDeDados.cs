@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using LaserFast.Entidades;
 using Newtonsoft.Json;
 using LaserFast.Helpers;
+using DataAccess.Contexto;
+using System.Data.Entity;
 
 namespace LaserFast.BancoDeDados
 {
-   public static class BancoDeDados
+    public static class BancoDeDados
     {
-        private const string DriveArquivoJson = "D:\\";
-        private const string CaminhoArquivoJson = "BancoDeDados\\";
+        private const string DriveArquivoJson = "C:\\";
+        private const string CaminhoArquivoJson = "\\Users\\SOLANOG\\Documents\\BancoDeDados\\";
         public static List<Cliente> ListaClientes { get; set; }
         public static List<Colaborador> ListaColaboradores { get; set; }
         public static List<Comanda> ListaComandas { get; set; }
@@ -27,7 +29,7 @@ namespace LaserFast.BancoDeDados
             ListaTratamentos = new List<Tratamento>();
 
         }
-        public static void AddCliente (Cliente cliente)
+        public static void AddCliente(Cliente cliente)
         {
             ListaClientes.Add(cliente);
             SalvarArquivoJson(TipoBancoDeDados.Cliente);
@@ -49,16 +51,20 @@ namespace LaserFast.BancoDeDados
         }
 
 
-        public static bool VerificarExistenciaCliente(int id)
-        {
-            bool existe = ListaClientes.FirstOrDefault(x => x.Id == id) != null;           
-            return existe;
-        }
-        public static bool VerificarExistenciaColaborador(int id)
-        {
-            bool existe = ListaColaboradores.FirstOrDefault(x => x.Id == id) != null;
-            return existe;
-        }
+        //public static bool VerificarExistenciaCliente(int id)
+        //{
+        //    using (var db = new Context())
+        //    {
+        //        var list = db.Cliente.ToList();
+        //        bool existe = list.FirstOrDefault(x => x.Id == id) != null;
+        //        return existe;
+        //    }
+        //}
+        //public static bool VerificarExistenciaColaborador(int id)
+        //{
+        //    bool existe = ListaColaboradores.FirstOrDefault(x => x.Id == id) != null;
+        //    return existe;
+        //}
 
 
 

@@ -13,5 +13,10 @@ namespace DataAccess.Models
         public decimal Valor { get; set; }
 
         public virtual IEnumerable<ItemComanda> ItensComanda { get; set; }
+        public void ListarDadosTratamentos()
+        {
+            Console.WriteLine(Id + ". " + "Tratamento: " + Nome);
+            Console.WriteLine("Valor: " + Valor + "\n");
+        }
     }
 }

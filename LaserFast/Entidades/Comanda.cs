@@ -30,8 +30,9 @@ namespace LaserFast.Entidades
             bool executarLoop = true;
             do
             {
-                Console.WriteLine("Deseja adicionar um ou mais tratamentos na comanda ou voltar ao menu principal?");
+                Console.WriteLine("Deseja adicionar um ou mais tratamentos na comanda? y/n");
                 bool adicionar = Console.ReadLine().ToLower() == "y" ? true : false;
+                Console.Clear();
                 if (adicionar)
                 {
                     Console.WriteLine("Escolha um tratamento abaixo\n");
@@ -41,28 +42,35 @@ namespace LaserFast.Entidades
                         item.ListarDadosTratamentos();
                     }
                     Console.Write("Digite sua opção: ");
+
                     int ItemComanda = int.Parse(Console.ReadLine());
                     Tratamento tratamento = BancoDeDados.BancoDeDados.ListaTratamentos.FirstOrDefault(x => x.Id.Equals(ItemComanda));
                     if (tratamento == null && ItemComanda == 0)
                     {
-                        Console.WriteLine("Inclusão cancelada, voltando para as opções");
+                        Console.Clear();
+                        Console.WriteLine("Voltando ao menu principal\n");
+                        executarLoop = false;
                     }
                     else if (tratamento != null)
                     {
+                        Console.Clear();
+                        Console.WriteLine("Tratamento escolhido: \n");
+                        tratamento.ListarDadosTratamentos();
+
                         Console.WriteLine("Confirma a inclusão do tratamento na comanda? y/n");
                         bool confirmar = Console.ReadLine().ToLower() == "y" ? true : false;
                         if (confirmar)
                         {
                             ListaTratamentosComanda.Add(tratamento);
                             Console.Clear();
-                            Console.WriteLine("Tratamento escolhido: \n");
-                            tratamento.ListarDadosTratamentos(); // fazer algo para quando mostrar, esconder o ID. Mostra ID apenas na linha 34
+                            Console.WriteLine("Tratamento adicionado a lista com sucesso.\n");
+                            //tratamento.ListarDadosTratamentos(); // fazer algo para quando mostrar, esconder o ID. Mostra ID apenas na linha 34
                         }
                         else
                         {
+                            Console.Clear();
                             Console.WriteLine("Tratamento cancelado. Voltando às opções");
                         }
-
                     }
                     else
                     {
