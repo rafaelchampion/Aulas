@@ -14,7 +14,7 @@ namespace DataAccess.Models
         public int IdPessoa { get; set; }
 
         public virtual Pessoa Pessoa { get; set; }
-        public virtual IEnumerable<Comanda> Comandas { get; set; }
+        public virtual List<Comanda> Comandas { get; set; }
         public void ListarDadosCliente()
         {
             Console.WriteLine("\nIdentificador: " + Id);

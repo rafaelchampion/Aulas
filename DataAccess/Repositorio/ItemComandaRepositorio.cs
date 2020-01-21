@@ -25,5 +25,11 @@ namespace DataAccess.Repositorio
                 db.SaveChanges();
             }
         }
+
+        public static void AdicionarItemComanda(ItemComanda itemcomanda, Context db)
+        {
+                db.ItemComanda.Add(itemcomanda);
+                db.SaveChanges();
+        }
     }
 }

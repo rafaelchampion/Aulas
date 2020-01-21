@@ -30,6 +30,8 @@ namespace DataAccess.Contexto
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //modelBuilder.Entity<Comanda>().HasMany(x => x.ItemComanda);
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }

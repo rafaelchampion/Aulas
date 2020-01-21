@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Repositorio;
 using DataAccess.Contexto;
+using System.Data.Entity;
 
 namespace DataAccess.Repositorio
 {
@@ -19,6 +20,13 @@ namespace DataAccess.Repositorio
                 db.SaveChanges();
             }
         }
+
+        public static void AdicionarComanda(Comanda comanda, Context db)
+        {
+            db.Comanda.Add(comanda);
+            db.SaveChanges();
+        }
+
         public static Comanda RetornarComandaCodigo(int codigo)
         {
             using (var db = new Context())
@@ -28,7 +36,7 @@ namespace DataAccess.Repositorio
         }
         public static Comanda RetornarComandaCodigo(int codigo, Context db)
         {
-            return db.Comanda.Find(codigo);
+            return db.Comanda.Include(x => x.ItemComanda).FirstOrDefault(x=>x.Id ==  codigo);
         }
     }
 }

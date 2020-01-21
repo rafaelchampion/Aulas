@@ -71,7 +71,7 @@ namespace LaserFast
                         {
                             Pessoa = pessoaCliente
                         };
-                        ClienteRepositorio.AdicionarCliente(cliente);                                                                          
+                        ClienteRepositorio.AdicionarCliente(cliente);
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
@@ -139,38 +139,41 @@ namespace LaserFast
                             }
                         } while (!check);
                         Console.Clear();
+                        DataAccess.Models.Comanda comandaDB = new DataAccess.Models.Comanda();
                         using (var db = new Context())
                         {
-                            DataAccess.Models.Comanda comandaDB = new DataAccess.Models.Comanda();
                             //Comanda comanda = new Comanda(numIdCliente, numIdColaborador); // Criar instância da classe comanda
                             comandaDB.IdCliente = numIdCliente;
                             comandaDB.IdColaborador = numIdColaborador;
-                            ComandaRepositorio.AdicionarComanda(comandaDB);
-                            comandaDB.AdicionarTratamentoComanda(db); // Chamando o método tratamento        
-                            comandaDB = ComandaRepositorio.RetornarComandaCodigo(comandaDB.Id, db);
-                            if (comandaDB.ItensComanda.ToList().Count > 0)// && comanda.ListarDadosComanda.Equals(0))
+                        }
+                        ComandaRepositorio.AdicionarComanda(comandaDB);
+                        comandaDB.AdicionarTratamentoComanda(); // Chamando o método tratamento  
+                        var teste = new Context().Cliente.Find(1);
+                        Console.WriteLine(teste.Pessoa.Nome);
+                        comandaDB = ComandaRepositorio.RetornarComandaCodigo(comandaDB.Id, new Context());
+
+                        if (comandaDB.ItemComanda.ToList().Count > 0)// && comanda.ListarDadosComanda.Equals(0))
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Tratamentos escolhidos na lista: ");
+                            foreach (DataAccess.Models.ItemComanda ItemComanda in comandaDB.ItemComanda.ToList())
+                            {
+                                ItemComanda.Tratamento.ListarDadosTratamentos();
+                            }
+                            Console.WriteLine("\nDeseja confirmar a aquisição do tratamento? y/n");
+                            string confirmarTratamento = Console.ReadLine().ToLower();
+                            if (confirmarTratamento == "y" && comandaDB.ItemComanda != null)
                             {
                                 Console.Clear();
-                                Console.WriteLine("Tratamentos escolhidos na lista: ");
-                                foreach (DataAccess.Models.ItemComanda ItemComanda in comandaDB.ItensComanda.ToList())
-                                {
-                                    ItemComanda.Tratamento.ListarDadosTratamentos();
-                                }
-                                Console.WriteLine("\nDeseja confirmar a aquisição do tratamento? y/n");
-                                string confirmarTratamento = Console.ReadLine().ToLower();
-                                if (confirmarTratamento == "y" && comandaDB.ItensComanda != null)
-                                {
-                                    Console.Clear();          
-                                    Console.WriteLine("Tratamento confirmado com sucesso.\n");
-                                    Console.WriteLine("Voltando ao menu principal.\n");
-                                }
-                                else
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine("Tratamento não confirmado.\n");
-                                    Console.WriteLine("Voltando ao menu principal.\n");
-                                    Console.Clear();
-                                }
+                                Console.WriteLine("Tratamento confirmado com sucesso.\n");
+                                Console.WriteLine("Voltando ao menu principal.\n");
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Tratamento não confirmado.\n");
+                                Console.WriteLine("Voltando ao menu principal.\n");
+                                Console.Clear();
                             }
                         }
                         break;

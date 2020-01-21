@@ -19,14 +19,15 @@ namespace DataAccess.Models
 
         public virtual Cliente Cliente { get; set; }
         public virtual Colaborador Colaborador { get; set; }
-        public virtual IEnumerable<ItemComanda> ItensComanda { get; set; }
+        public virtual List<ItemComanda> ItemComanda { get; set; }
+
         public void ListarDadosComanda()
         {
             Console.WriteLine("\nId Comanda: " + Id);
             Console.WriteLine("Id Cliente: " + IdCliente);
             Console.WriteLine("Id Colaborador: " + IdColaborador);
         }
-        public void AdicionarTratamentoComanda(Context db)
+        public void AdicionarTratamentoComanda()
         {
             bool executarLoop = true;
             do
@@ -38,14 +39,14 @@ namespace DataAccess.Models
                 {
                     Console.WriteLine("Escolha um tratamento abaixo\n");
                     Console.WriteLine("0. Voltar\n");
-                        foreach (Tratamento item in db.Tratamento.ToList())
-                        {
-                            item.ListarDadosTratamentos();
-                        }
+                    foreach (Tratamento item in TratamentoRepositorio.ListarTodos())
+                    {
+                        item.ListarDadosTratamentos();
+                    }
                     Console.Write("Digite sua opção: ");
 
                     int ItemComanda = int.Parse(Console.ReadLine());
-                    Tratamento tratamento = db.Tratamento.FirstOrDefault(x => x.Id.Equals(ItemComanda));
+                    Tratamento tratamento = TratamentoRepositorio.RetornarTratamentoPorCodigo(ItemComanda);
                     if (tratamento == null && ItemComanda == 0)
                     {
                         Console.Clear();

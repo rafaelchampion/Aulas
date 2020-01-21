@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Contexto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DataAccess.Models
         public string Nome { get; set; }
         public decimal Valor { get; set; }
 
-        public virtual IEnumerable<ItemComanda> ItensComanda { get; set; }
+        public virtual List<ItemComanda> ItensComanda { get; set; }
         public void ListarDadosTratamentos()
         {
             Console.WriteLine(Id + ". " + "Tratamento: " + Nome);
