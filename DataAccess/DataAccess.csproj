@@ -91,6 +91,7 @@
     <Compile Include="Repositorio\ClienteRepositorio.cs" />
     <Compile Include="Repositorio\ColaboradorRepositorio.cs" />
     <Compile Include="Repositorio\ComandaRepositorio.cs" />
+    <Compile Include="Repositorio\ItemComandaRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

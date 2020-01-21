@@ -7,6 +7,7 @@ using LaserFast.Entidades;
 using LaserFast.BancoDeDados;
 using DataAccess.Contexto;
 using System.Data.Entity;
+using DataAccess.Repositorio;
 
 namespace LaserFast
 {
@@ -70,11 +71,7 @@ namespace LaserFast
                         {
                             Pessoa = pessoaCliente
                         };
-                        using (var db = new Context())
-                        {
-                            db.Cliente.Add(cliente);
-                            db.SaveChanges();
-                        }
+                        ClienteRepositorio.AdicionarCliente(cliente);                                                                          
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + cliente.Id);
                         Console.ReadLine();
@@ -91,8 +88,6 @@ namespace LaserFast
                         string logradouroColaborador = Console.ReadLine();
                         Console.WriteLine("\nDigite a cidade do Colaborador");
                         string cidadeColaborador = Console.ReadLine();
-                        //Colaborador colaborador = new Colaborador(nomeColaborador, cpfColaborador, datanascimentoColaborador, logradouroColaborador, cidadeColaborador);
-                        //BancoDeDados.BancoDeDados.AddColaborador(colaborador);
                         DataAccess.Models.Pessoa pessoaColaborador = new DataAccess.Models.Pessoa()
                         {
                             Nome = nomeColaborador,
@@ -105,12 +100,7 @@ namespace LaserFast
                         {
                             Pessoa = pessoaColaborador
                         };
-                        using (var db = new Context())
-                        {
-                            db.Colaborador.Add(colaborador);
-                            db.SaveChanges();
-
-                        }
+                        ColaboradorRepositorio.AdicionarColaborador(colaborador);
                         Console.Clear();
                         Console.WriteLine("Seu número indentificador é: \n" + colaborador.Id);
                         Console.ReadLine();
@@ -153,11 +143,11 @@ namespace LaserFast
                         {
                             DataAccess.Models.Comanda comandaDB = new DataAccess.Models.Comanda();
                             //Comanda comanda = new Comanda(numIdCliente, numIdColaborador); // Criar instância da classe comanda
-                            numIdCliente = comandaDB.IdCliente;
-                            numIdColaborador = comandaDB.IdColaborador;
-
-                            comandaDB.AdicionarTratamentoComanda(db); // Chamando o método tratamento
-                            
+                            comandaDB.IdCliente = numIdCliente;
+                            comandaDB.IdColaborador = numIdColaborador;
+                            ComandaRepositorio.AdicionarComanda(comandaDB);
+                            comandaDB.AdicionarTratamentoComanda(db); // Chamando o método tratamento        
+                            comandaDB = ComandaRepositorio.RetornarComandaCodigo(comandaDB.Id, db);
                             if (comandaDB.ItensComanda.ToList().Count > 0)// && comanda.ListarDadosComanda.Equals(0))
                             {
                                 Console.Clear();
@@ -170,9 +160,7 @@ namespace LaserFast
                                 string confirmarTratamento = Console.ReadLine().ToLower();
                                 if (confirmarTratamento == "y" && comandaDB.ItensComanda != null)
                                 {
-                                    Console.Clear();
-                                    db.Comanda.Add(comandaDB);
-                                    db.SaveChanges();
+                                    Console.Clear();          
                                     Console.WriteLine("Tratamento confirmado com sucesso.\n");
                                     Console.WriteLine("Voltando ao menu principal.\n");
                                 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Contexto;
+using DataAccess.Repositorio;
 
 namespace DataAccess.Models
 {
@@ -28,7 +29,6 @@ namespace DataAccess.Models
         public void AdicionarTratamentoComanda(Context db)
         {
             bool executarLoop = true;
-            List<ItemComanda> y = new List<ItemComanda>();
             do
             {
                 Console.WriteLine("Deseja adicionar um ou mais tratamentos na comanda? y/n");
@@ -62,13 +62,11 @@ namespace DataAccess.Models
                         if (confirmar)
                         {
                             ItemComanda itemListaComanda = new ItemComanda();
-                            itemListaComanda.Tratamento = tratamento;
-                            //itemListaComanda.Comanda = this;
-                            y.Add(itemListaComanda);
-                           // ListaTratamentosComanda.Add(tratamento);
+                            itemListaComanda.IdTratamento = tratamento.Id;
+                            itemListaComanda.IdComanda = this.Id;
+                            ItemComandaRepositorio.AdicionarItemComanda(itemListaComanda);
                             Console.Clear();
                             Console.WriteLine("Tratamento adicionado a lista com sucesso.\n");
-                            //tratamento.ListarDadosTratamentos(); // fazer algo para quando mostrar, esconder o ID. Mostra ID apenas na linha 34
                         }
                         else
                         {
@@ -89,9 +87,6 @@ namespace DataAccess.Models
                 }
             }
             while (executarLoop);
-            ItensComanda = y;
         }
-
-
     }
 }

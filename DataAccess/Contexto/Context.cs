@@ -24,6 +24,7 @@ namespace DataAccess.Contexto
             * We'll work on changing this behavior before we ship the fial version since it is the default. 
             * Until then, existing databases do not generally need any database initializer so it can be turned off for your context type by calling: */
             Database.SetInitializer<Context>(null);
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
