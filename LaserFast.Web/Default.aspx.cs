@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataAccess.Repositorio;
 
 namespace LaserFast.Web
 {
@@ -11,7 +12,8 @@ namespace LaserFast.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            grdClientes.DataSource = ClienteRepositorio.ListarTodos();
+            grdClientes.DataBind();
         }
     }
 }
