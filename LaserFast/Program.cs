@@ -116,7 +116,6 @@ namespace LaserFast
                         {
                             numIdCliente = int.Parse(Console.ReadLine());
                             check = DataAccess.Contexto.Context.VerificarExistenciaCliente(numIdCliente);
-                            //check = BancoDeDados.BancoDeDados.VerificarExistenciaCliente(numIdCliente);
                             if (check == false)
                             {
                                 Console.Clear();
@@ -130,7 +129,6 @@ namespace LaserFast
                         {
                             numIdColaborador = int.Parse(Console.ReadLine());
                             check = DataAccess.Contexto.Context.VerificarExistenciaColaborador(numIdColaborador);
-                            //check = BancoDeDados.BancoDeDados.VerificarExistenciaColaborador(numIdColaborador);
                             if (check == false)
                             {
                                 Console.WriteLine("");
@@ -142,38 +140,19 @@ namespace LaserFast
                         DataAccess.Models.Comanda comandaDB = new DataAccess.Models.Comanda();
                         using (var db = new Context())
                         {
-                            //Comanda comanda = new Comanda(numIdCliente, numIdColaborador); // Criar instância da classe comanda
                             comandaDB.IdCliente = numIdCliente;
                             comandaDB.IdColaborador = numIdColaborador;
                         }
                         ComandaRepositorio.AdicionarComanda(comandaDB);
-                        comandaDB.AdicionarTratamentoComanda(); // Chamando o método tratamento  
-                        var teste = new Context().Cliente.Find(1);
-                        Console.WriteLine(teste.Pessoa.Nome);
+                        comandaDB.AdicionarTratamentoComanda(); 
                         comandaDB = ComandaRepositorio.RetornarComandaCodigo(comandaDB.Id, new Context());
-
-                        if (comandaDB.ItemComanda.ToList().Count > 0)// && comanda.ListarDadosComanda.Equals(0))
+                        if (comandaDB.ItemComanda.ToList().Count > 0)
                         {
                             Console.Clear();
                             Console.WriteLine("Tratamentos escolhidos na lista: ");
                             foreach (DataAccess.Models.ItemComanda ItemComanda in comandaDB.ItemComanda.ToList())
                             {
                                 ItemComanda.Tratamento.ListarDadosTratamentos();
-                            }
-                            Console.WriteLine("\nDeseja confirmar a aquisição do tratamento? y/n");
-                            string confirmarTratamento = Console.ReadLine().ToLower();
-                            if (confirmarTratamento == "y" && comandaDB.ItemComanda != null)
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Tratamento confirmado com sucesso.\n");
-                                Console.WriteLine("Voltando ao menu principal.\n");
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Tratamento não confirmado.\n");
-                                Console.WriteLine("Voltando ao menu principal.\n");
-                                Console.Clear();
                             }
                         }
                         break;
@@ -183,8 +162,6 @@ namespace LaserFast
                         string nomeTratamento = Console.ReadLine();
                         Console.WriteLine("Digite o valor do tratamento digitado previamente");
                         decimal valorTratamento = decimal.Parse(Console.ReadLine());
-                        //Tratamento tratamento = new Tratamento(nomeTratamento, valorTratamento);
-                        //BancoDeDados.BancoDeDados.AddTratamento(tratamento);
                         DataAccess.Models.Tratamento tratamento = new DataAccess.Models.Tratamento()
                         {
                             Nome = nomeTratamento,

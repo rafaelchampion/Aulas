@@ -30,12 +30,8 @@ namespace DataAccess.Models
         public void AdicionarTratamentoComanda()
         {
             bool executarLoop = true;
-            do
+            while (executarLoop)
             {
-                Console.WriteLine("Deseja adicionar um ou mais tratamentos na comanda? y/n");
-                bool adicionar = Console.ReadLine().ToLower() == "y" ? true : false;
-                Console.Clear();
-                if (adicionar)
                 {
                     Console.WriteLine("Escolha um tratamento abaixo\n");
                     Console.WriteLine("0. Voltar\n");
@@ -68,6 +64,13 @@ namespace DataAccess.Models
                             ItemComandaRepositorio.AdicionarItemComanda(itemListaComanda);
                             Console.Clear();
                             Console.WriteLine("Tratamento adicionado a lista com sucesso.\n");
+
+                            Console.WriteLine("Tratamentos escolhidos: ");
+                            var lista = ItemComandaRepositorio.ListarItensComanda(Id).ToList();
+                            foreach(ItemComanda item in lista)
+                            {                                
+                                item.Tratamento.ListarDadosTratamentos();
+                            }
                         }
                         else
                         {
@@ -81,13 +84,15 @@ namespace DataAccess.Models
                         Console.ReadLine();
                     }
                 }
-                else
+                Console.WriteLine("Deseja adicionar um ou mais tratamentos na comanda? y/n");
+                bool adicionar = Console.ReadLine().ToLower() == "y" ? true : false;
+                Console.Clear();
+                if (!adicionar)
                 {
                     executarLoop = false;
-                    Console.WriteLine("Voltando ao menu principal");
                 }
             }
-            while (executarLoop);
         }
     }
 }
+
