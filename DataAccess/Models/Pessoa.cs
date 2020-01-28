@@ -21,6 +21,6 @@ namespace DataAccess.Models
         public string Cidade { get; set; }
         public DateTime DataNascimento { get; set; }
         public virtual List<Cliente> Cliente { get; set; }
-        public virtual List<Colaborador> Colaborador { get; set; }
+        public virtual List<Colaborador> Colaborador { get; set; }        
     }
 }

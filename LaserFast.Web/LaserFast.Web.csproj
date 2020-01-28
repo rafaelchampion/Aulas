@@ -123,6 +123,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSS\LaserFast.css" />
+    <Content Include="Content\JavaScript\JavaScript.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -138,6 +139,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Modulos\CadastroClientes.aspx" />
+    <Content Include="Modulos\CadastroColaboradores.aspx" />
     <Content Include="Modulos\Clientes.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -206,6 +208,13 @@
     </Compile>
     <Compile Include="Modulos\CadastroClientes.aspx.designer.cs">
       <DependentUpon>CadastroClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\CadastroColaboradores.aspx.cs">
+      <DependentUpon>CadastroColaboradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\CadastroColaboradores.aspx.designer.cs">
+      <DependentUpon>CadastroColaboradores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modulos\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>

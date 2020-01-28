@@ -18,3 +18,8 @@ th {
 .form-control {
     padding: 2px !important;
 }
+
+/*input:focus {
+    outline: -webkit-focus-ring-color auto 1px !important;
+    background-color: red;
+}*/

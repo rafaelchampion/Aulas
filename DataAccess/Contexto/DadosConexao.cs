@@ -14,7 +14,7 @@ namespace DataAccess.Contexto
         public const string Senha = "BUrW68Zd";
         public static string RetornarStringConexao()
         {
-            return $"server={Servidor};user id={Usuario};password={Senha};database={NomeBanco};persistsecurityinfo=True";
+            return $"server={Servidor};user id={Usuario};password={Senha};database={NomeBanco};persistsecurityinfo=True; convert zero datetime = True";
         }
     }
 }

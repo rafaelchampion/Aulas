@@ -12,10 +12,22 @@ namespace DataAccess.Repositorio
     {
         public static void AdicionarCliente(Cliente cliente)
         {
-            using(var db = new DataAccess.Contexto.Context())
+            using (var db = new DataAccess.Contexto.Context())
             {
-                db.Cliente.Add(cliente);
-                db.SaveChanges();
+                using (DbContextTransaction tr = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        db.Cliente.Add(cliente);
+                        db.SaveChanges();
+                        tr.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        tr.Rollback();                        
+                        throw new Exception(ex.Message);
+                    }
+                }
             }
         }
 
@@ -23,7 +35,7 @@ namespace DataAccess.Repositorio
         {
             using (var db = new Contexto.Context())
             {
-                return db.Cliente.Include(x=>x.Pessoa).ToList();
+                return db.Cliente.Include(x => x.Pessoa).ToList();
             }
         }
     }
