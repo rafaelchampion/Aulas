@@ -1,0 +1,20 @@
+﻿/*Seletor de TAG HTML*/
+td {
+    padding: 5px !important;
+    text-align: center !important;
+}
+th {
+    padding: 2px !important;
+    text-align: center !important;
+}
+
+/*Seletor de Classe*/
+
+/*Seletor por Id*/
+#grdClientes{
+
+}
+
+.form-control {
+    padding: 2px !important;
+}
