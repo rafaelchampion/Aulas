@@ -19,7 +19,7 @@ namespace LaserFast.Web.Modulos
         {
             Tratamento tratamento = new Tratamento();
             tratamento.Nome = txtCadastroNomeTratamento.Text;
-            tratamento.Valor = int.Parse(txtCadastroValorTratamento.Text);
+            tratamento.Valor = decimal.Parse(txtCadastroValorTratamento.Text);
             DataAccess.Repositorio.TratamentoRepositorio.AdicionarTratamento(tratamento);
         }
 

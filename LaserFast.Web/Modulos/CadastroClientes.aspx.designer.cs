@@ -21,7 +21,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtNomeCliente;
 
         /// <summary>
         /// txtEmailCliente control.
@@ -30,7 +30,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtEmailCliente;
 
         /// <summary>
         /// txtTelefoneCliente control.
@@ -39,7 +39,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefoneCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtTelefoneCliente;
 
         /// <summary>
         /// txtCpfCliente control.
@@ -48,7 +48,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCpfCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtCpfCliente;
 
         /// <summary>
         /// txtLogradouroCliente control.
@@ -57,7 +57,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogradouroCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtLogradouroCliente;
 
         /// <summary>
         /// txtNumeroCliente control.
@@ -66,7 +66,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtNumeroCliente;
 
         /// <summary>
         /// txtComplementoCliente control.
@@ -75,7 +75,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtComplementoCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtComplementoCliente;
 
         /// <summary>
         /// txtBairroCliente control.
@@ -84,7 +84,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBairroCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtBairroCliente;
 
         /// <summary>
         /// txtDataNascimentoCliente control.
@@ -93,7 +93,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataNascimentoCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtDataNascimentoCliente;
 
         /// <summary>
         /// txtCidadeCliente control.
@@ -102,7 +102,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCidadeCliente;
+        protected global::DevExpress.Web.ASPxTextBox txtCidadeCliente;
 
         /// <summary>
         /// btnSalvarDadosCliente control.

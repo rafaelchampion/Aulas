@@ -12,8 +12,8 @@ namespace LaserFast.Web.Modulos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            grdClientes.DataSource = ClienteRepositorio.ListarTodos();
-            grdClientes.DataBind();
+            grdClientes2.DataSource = ClienteRepositorio.ListarTodos();
+            grdClientes2.DataBind();
         }
     }
 }
