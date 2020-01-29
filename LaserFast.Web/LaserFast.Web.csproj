@@ -140,7 +140,10 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Modulos\CadastroClientes.aspx" />
     <Content Include="Modulos\CadastroColaboradores.aspx" />
+    <Content Include="Modulos\CadastroTratamento.aspx" />
     <Content Include="Modulos\Clientes.aspx" />
+    <Content Include="Modulos\Colaboradores.aspx" />
+    <Content Include="Modulos\Tratamentos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -216,12 +219,33 @@
     <Compile Include="Modulos\CadastroColaboradores.aspx.designer.cs">
       <DependentUpon>CadastroColaboradores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modulos\CadastroTratamento.aspx.cs">
+      <DependentUpon>CadastroTratamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\CadastroTratamento.aspx.designer.cs">
+      <DependentUpon>CadastroTratamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Modulos\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Modulos\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Colaboradores.aspx.cs">
+      <DependentUpon>Colaboradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Colaboradores.aspx.designer.cs">
+      <DependentUpon>Colaboradores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulos\Tratamentos.aspx.cs">
+      <DependentUpon>Tratamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\Tratamentos.aspx.designer.cs">
+      <DependentUpon>Tratamentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

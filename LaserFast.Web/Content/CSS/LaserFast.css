@@ -3,6 +3,7 @@ td {
     padding: 5px !important;
     text-align: center !important;
 }
+
 th {
     padding: 2px !important;
     text-align: center !important;
@@ -11,13 +12,54 @@ th {
 /*Seletor de Classe*/
 
 /*Seletor por Id*/
-#grdClientes{
-
+#grdClientes {
 }
 
 .form-control {
     padding: 2px !important;
 }
+
+.h3esp{
+}
+
+
+body {
+    background-color: #F7F7F7 !important;
+    font-size: 12px !important;
+    font-family: Arial !important;
+}
+
+.formElement {
+    width: 30% !important;
+    float: left !important;
+    margin-right: 2% !important;
+    margin-left: 1% !important;
+}
+
+
+.formElement label{
+    float: left !important;
+    margin-right: 2% !important;
+    margin-left: 1% !important;
+}
+
+
+.formElementPessoa label {
+    width: 100% !important;
+    float: left !important;
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
+
+
+
+    .formElement label {
+        font-size: 1.4rem !important;
+        color: #555555 !important;
+    }
+
+
+
 
 /*input:focus {
     outline: -webkit-focus-ring-color auto 1px !important;
