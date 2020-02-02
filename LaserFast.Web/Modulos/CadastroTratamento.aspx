@@ -42,7 +42,8 @@
         <div class="col-md-12 col-sm-12">
             <br />
             <label class="col-md-12 col-sm-12">
-                <button type="button" class="btn btn-primary btn-block" OnClick="btnSalvarDadosTratamento_Click" id="btnSalvarDadosTratamento">Block level button</button>
+                <asp:Button CssClass="btn btn-primary" runat="server" ID="btnSalvarDadosTratamento" Text="Salvar" OnClick="btnSalvarDadosTratamento_Click" />
+                <%--<button type="button" class="btn btn-primary btn-block" OnClick="btnSalvarDadosTratamento_Click" id="btnSalvarDadosTratamento" runat="server">Block level button</button>--%>
             </label>
         </div>
     </div>
