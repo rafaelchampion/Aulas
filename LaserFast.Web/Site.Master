@@ -52,9 +52,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="https://localhost:44317/Modulos/CadastroClientes">Cadastro</a></li>
+                        <li><a runat="server" href="https://localhost:44317/Modulos/Clientes">Clientes</a></li>
+                        <li><a runat="server" href="https://localhost:44317/Modulos/Tratamentos">Tratamentos</a></li>
                     </ul>
                 </div>
             </div>

@@ -38,11 +38,13 @@ body {
 }
 
 
-.formElement label{
-    float: left !important;
-    margin-right: 2% !important;
-    margin-left: 1% !important;
-}
+    .formElement label {
+        float: left !important;
+        margin-right: 2% !important;
+        margin-left: 1% !important;
+        font-size: 1.4rem !important;
+        color: #555555 !important;
+    }
 
 
 .formElementPessoa label {
@@ -52,12 +54,6 @@ body {
     margin-bottom: 1px;
 }
 
-
-
-    .formElement label {
-        font-size: 1.4rem !important;
-        color: #555555 !important;
-    }
 
 
 
