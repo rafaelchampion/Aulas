@@ -15,13 +15,13 @@ namespace LaserFast.Web.Modulos
     {
 
         /// <summary>
-        /// areaTratamento control.
+        /// dropdownCategoriaTratamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList areaTratamento;
+        protected global::DevExpress.Web.ASPxComboBox dropdownCategoriaTratamento;
 
         /// <summary>
         /// txtCadastroNomeTratamento control.
@@ -30,7 +30,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCadastroNomeTratamento;
+        protected global::DevExpress.Web.ASPxTextBox txtCadastroNomeTratamento;
 
         /// <summary>
         /// txtCadastroValorTratamento control.
@@ -39,7 +39,7 @@ namespace LaserFast.Web.Modulos
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCadastroValorTratamento;
+        protected global::DevExpress.Web.ASPxTextBox txtCadastroValorTratamento;
 
         /// <summary>
         /// btnSalvarDadosTratamento control.

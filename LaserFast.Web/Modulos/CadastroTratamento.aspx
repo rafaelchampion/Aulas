@@ -7,34 +7,33 @@
     </div>
 
     <div class="row">
-    <div class="formElement">        
-        <div class="col-md-12">
-            <label>Área       </label>
-            <asp:DropDownList runat="server" ID="areaTratamento" Width="100%" CssClass="btn btn-secondary dropdown-toggle">
-                <asp:ListItem Text="Item 1" Value="1" />
-                <asp:ListItem Text="Item 5" Value="5" />
-                <asp:ListItem Text="Item 3" Value="3" />
-                <asp:ListItem Text="Item 4" Value="4" />
-                <asp:ListItem Text="Item 2" Value="2" />
-            </asp:DropDownList>
+        <div class="formElement">
+            <div class="col-md-12">
+                <label>Categoria</label>
+                <dx:ASPxComboBox ID="dropdownCategoriaTratamento" runat="server" DropDownStyle="DropDownList" Width="100%">
+                    <Items>
+                        <dx:ListEditItem Value="Feminino" />
+                        <dx:ListEditItem Value="Masculino" />
+                        <dx:ListEditItem Value="Avaliação" />
+                        <dx:ListEditItem Value="Cortesia" />
+                        <dx:ListEditItem Value="Promocional" />
+                    </Items>
+                </dx:ASPxComboBox>
+            </div>
         </div>
-    </div>
 
-
-    <div class="formElement">
-        <div class="col-md-12 ">
-            <label>Tratamento</label>
-            <asp:TextBox runat="server" ID="txtCadastroNomeTratamento" Width="100%" CssClass="form-control"></asp:TextBox>
+        <div class="formElement">
+            <div class="col-md-12 ">
+                <label>Tratamento</label>
+                <dx:ASPxTextBox ID="txtCadastroNomeTratamento" runat="server" Width="100%" ></dx:ASPxTextBox>
+            </div>
         </div>
-    </div>
-
-    <div class="formElement">
-        <div class="col-md-12 ">
-            <label>Valor       </label>
-            <asp:TextBox runat="server" ID="txtCadastroValorTratamento" Width="100%" CssClass="form-control"></asp:TextBox>
+        <div class="formElement">
+            <div class="col-md-12 ">
+                <label>Valor</label>
+                <dx:ASPxTextBox ID="txtCadastroValorTratamento" runat="server" Width="100%"></dx:ASPxTextBox>
+            </div>
         </div>
-    </div>
-
     </div>
 
     <br />
@@ -42,7 +41,7 @@
         <div class="col-md-12 col-sm-12">
             <br />
             <label class="col-md-12 col-sm-12">
-                 <asp:Button CssClass="btn btn-primary" runat="server" ID="btnSalvarDadosTratamento" Text="Salvar" OnClick="btnSalvarDadosTratamento_Click" />
+                <asp:Button CssClass="btn btn-primary" runat="server" ID="btnSalvarDadosTratamento" Text="Salvar" OnClick="btnSalvarDadosTratamento_Click" />
 
                 <%--<button type="button" class="btn btn-primary btn-block" OnClick="btnSalvarDadosTratamento_Click" id="btnSalvarDadosTratamento">Block level button</button>--%>
             </label>

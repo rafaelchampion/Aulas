@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace LaserFast.Web.Modulos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            grdTratamentos.DataSource = TratamentoRepositorio.ListarTodos();
+            grdTratamentos.DataBind();
         }
     }
 }

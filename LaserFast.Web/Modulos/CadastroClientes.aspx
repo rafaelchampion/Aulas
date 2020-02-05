@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroClientes.aspx.cs" Inherits="LaserFast.Web.Modulos.CadastroClientes" %>
+<%@ Register Assembly="DevExpress.Web.v18.2 , Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="form-row">
@@ -79,6 +80,3 @@
         </div>
     </div>
 </asp:Content>
-
-
-<%-- https://codepen.io/jaycbrf/pen/iBszr --%>
