@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="LaserFast.Web.SiteMaster" %>
 
+<%@ Register Assembly="DevExpress.Web.v18.2 , Version=18.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -14,7 +15,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -50,11 +51,15 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">Laserfast</a>
                 </div>
+
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="https://localhost:44317/Modulos/CadastroClientes">Cadastro</a></li>
-                        <li><a runat="server" href="https://localhost:44317/Modulos/Clientes">Clientes</a></li>
-                        <li><a runat="server" href="https://localhost:44317/Modulos/Tratamentos">Tratamentos</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/cadastroclientes">Cadastro de Clientes</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/cadastrocolaboradores">Cadastro de Colaboradores</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/cadastrotratamento">Cadastro de Tratamentos</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/clientes">Clientes</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/colaboradores">Colaboradores</a></li>
+                        <li><a runat="server" href="https://localhost:44317/modulos/tratamentos">Tratamentos</a></li>
                     </ul>
                 </div>
             </div>

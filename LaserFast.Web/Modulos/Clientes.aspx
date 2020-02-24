@@ -8,16 +8,16 @@
             <div class="col-md-12 col-sm-12">                
                 <dx:ASPxGridView runat="server" Width="100%" ID="grdClientes2">
                     <Columns>
-                        <dx:GridViewDataTextColumn Caption="ID" FieldName="Id"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Nome" FieldName="Pessoa.Nome" CellStyle-Font-Bold="true"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Email" FieldName="Pessoa.Email"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Telefone" FieldName="Pessoa.Telefone"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.CPF" FieldName="Pessoa.CPF"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Logradouro" FieldName="Pessoa.Logradouro"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Numero" FieldName="Pessoa.Numero"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Bairro" FieldName="Pessoa.Bairro"></dx:GridViewDataTextColumn>
-                        <dx:GridViewDataDateColumn Caption="Pessoa.DataNascimento" FieldName="Pessoa.DataNascimento"></dx:GridViewDataDateColumn>
-                        <dx:GridViewDataTextColumn Caption="Pessoa.Cidade" FieldName="Pessoa.Cidade"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Código" FieldName="Id"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Nome" FieldName="Pessoa.Nome"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="E-mail" FieldName="Pessoa.Email"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Telefone" FieldName="Pessoa.Telefone"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="CPF" FieldName="Pessoa.CPF"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Logradouro" FieldName="Pessoa.Logradouro"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Numero" FieldName="Pessoa.Numero"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn Caption="Bairro" FieldName="Pessoa.Bairro"></dx:GridViewDataTextColumn>
+                        <dx:GridViewDataDateColumn Caption="Data de Nascimento" FieldName="Pessoa.DataNascimento"></dx:GridViewDataDateColumn>
+                        <dx:GridViewDataTextColumn Caption="Cidade" FieldName="Pessoa.Cidade"></dx:GridViewDataTextColumn>
                     </Columns>
                 </dx:ASPxGridView>
             </div>
